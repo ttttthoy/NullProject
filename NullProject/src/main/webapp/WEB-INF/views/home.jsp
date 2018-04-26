@@ -5,7 +5,7 @@
 	<title>Home</title>
 </head>
 <body>
-	
+	0000
 	hello spring
 	
 <P>  The time on the server is ${serverTime}. </P>
