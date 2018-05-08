@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+        $(document).ready(function(){
+            
+            $('#get').click(function(){
+                $.ajax({
+                    url: '/open/product',
+                    type: 'get',
+                    dataType: 'text',
+                    success: function(data){
+                        $('#output').val(data);
+                    }
+                });                
+            });
+            
+            $('#post').click(function(){
+            	
+            	$.ajax({
+            		url: '/open/product',
+                    type: 'post',
+                    dataType: 'text',
+                    data:{
+                    	name: $("#name").val(),
+                    	price: $("#price").val()
+                    },                    
+                    success: function(data){
+                        $('#output').val(data);
+                    }
+            	});
+            	
+            });
+            
+            
+            
+        });
+    </script>
+</head>
+
+<body>
+
+	이름
+	<input type="text" id="name"><br>
+	가격
+	<input type="text" id="price"><br>
+	결과
+	<input type="text" id="output"><br>
+	<button id="get">get</button>
+	<button id="post">post</button>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
