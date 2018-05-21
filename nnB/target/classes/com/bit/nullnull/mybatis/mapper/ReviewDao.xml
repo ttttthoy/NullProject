@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.bit.nullnull.book.dao.ReviewDao">
+
+	<select id="cntReview" resultType="int">
+		select count(*) from book_review where isbn = #{isbn}
+	</select>
+	
+	<select id="selectReviewList" resultType="com.bit.nullnull.book.model.Review">
+		select * from book_review where isbn = #{isbn}		
+	</select>
+
+	<insert id="insertReview" parameterType="com.bit.nullnull.book.model.Review">
+		insert into book_review (isbn, r_content, r_star, r_like, mem_id) values( #{isbn}, #{r_content}, #{r_star}, #{r_like}, #{mem_id})
+	</insert>
+	
+	<select id="avgStar" parameterType="String" resultType="double">
+		select avg(r_star) from book_review where isbn = #{isbn}
+	</select>
+	
+	<delete id="deleteReview" parameterType="com.bit.nullnull.book.model.Review">
+		delete from book_review where r_id = #{r_id}
+	</delete>
+
+</mapper>

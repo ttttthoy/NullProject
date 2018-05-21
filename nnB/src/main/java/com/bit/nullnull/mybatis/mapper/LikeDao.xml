@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.nullnull.booknote.dao.LikeDao">
+
+	<insert id="addLike" parameterType="com.bit.nullnull.booknote.model.Like">
+		insert into joayo_note (note_id, mem_id) values (#{note_id}, #{mem_id})
+	</insert>
+	
+	<select id="getLikes" resultType="com.bit.nullnull.booknote.model.Like">
+		select *  from joayo_note
+	</select>
+	
+	<delete id="removeLike" parameterType="com.bit.nullnull.booknote.model.Like">
+		delete from joayo_note where note_id = #{note_id} and mem_id = #{mem_id}
+	</delete>
+	
+	<select id="getLike" resultType="com.bit.nullnull.booknote.model.Like">
+		select * from joayo_note where note_id = #{note_id} and mem_id = #{mem_id}
+	</select>
+
+	<select id="countLike" parameterType="com.bit.nullnull.booknote.model.Like">
+		select joayo from booknotes where note_id = #{note_id}
+	</select>
+	
+	<update id="plusLike" parameterType="com.bit.nullnull.booknote.model.Like">
+		update booknotes set joayo = joayo + 1 where note_id = #{note_id}
+	</update>
+	
+	<update id="minusLike" parameterType="com.bit.nullnull.booknote.model.Like">
+		update booknotes set joayo = joayo - 1 where note_id = #{note_id}
+	</update>
+</mapper>

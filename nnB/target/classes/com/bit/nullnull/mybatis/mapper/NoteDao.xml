@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bit.nullnull.booknote.dao.NoteDao">
+
+	<select id="selectNoteListByIsbn" resultType="com.bit.nullnull.booknote.model.Note">
+		select * from booknotes where isbn = #{isbn} and pub_priv=0
+	</select>
+	
+	<select id = "selectNoteById" resultType="com.bit.nullnull.booknote.model.Note">
+		select * from booknotes where note_id = #{note_id}
+	</select>
+	
+	<select id = "countJoayo" resultType="com.bit.nullnull.booknote.model.Note" >
+		select * from booknotes where note_id = #{note_id}
+	</select>
+	
+	<select id = "selectNoteList" resultType = "com.bit.nullnull.booknote.model.Note" >
+		select * from booknotes;
+	</select>
+	
+	<insert id="insertNote" parameterType="com.bit.nullnull.booknote.model.Note">
+		INSERT INTO booknotes (MEM_ID, ISBN, NOTE_CONTENTS, PUB_PRIV, JOAYO, b_title, b_imag, b_author, b_publisher, b_pubdate) VALUES( #{mem_id}, #{isbn}, #{note_contents}, #{pub_priv}, #{like}, #{b_title}, #{b_imag}, #{b_author}, #{b_publisher}, #{b_pubdate})
+	</insert>
+	
+	<delete id="deleteNote" parameterType="com.bit.nullnull.booknote.model.Note">
+		delete from booknotes where note_id = #{note_id}
+	</delete>
+	
+	<update id="updateNote" parameterType="com.bit.nullnull.booknote.model.Note">
+		update booknotes set note_contents = #{note_contents}, pub_priv = #{pub_priv} where note_id = #{note_id}
+	</update>
+		
+</mapper>
+
