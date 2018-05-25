@@ -39,9 +39,9 @@
 		</c:if>
 		</td>
 		<td>
-			<a href="../${note.note_id}/Anote">보기</a>
-			<a href="../${note.note_id }/noteUpdate">수정</a>
-			<a href="../${note.note_id}/noteDelete">삭제</a>
+			<a href="../note/${note.note_id}/Anote">보기</a>
+			<a href="../note/${note.note_id }/noteUpdate">수정</a>
+			<a href="../note/${note.note_id}/noteDelete">삭제</a>
 		</td>
 	</tr>
 	</c:forEach>
