@@ -19,7 +19,7 @@
 	</insert>
 	
 	<select id="avgStar" parameterType="String" resultType="double">
-		select avg(r_star) from book_review where isbn = #{isbn}
+		select coalesce(avg(r_star),0) from book_review where isbn = #{isbn}
 	</select>
 	
 	<delete id="deleteReview" parameterType="com.bit.nullnull.book.model.Review">

@@ -5,6 +5,10 @@
 
 <mapper namespace="com.bit.nullnull.booknote.dao.NoteDao">
 
+	<select id="selectNoteListByMem_num" resultType="com.bit.nullnull.booknote.model.Note">
+		select * from booknotes where member_num=#{member_num}
+	</select>
+	
 	<select id="selectNoteListByIsbn" resultType="com.bit.nullnull.booknote.model.Note">
 		select * from booknotes where isbn = #{isbn} and pub_priv=0
 	</select>
