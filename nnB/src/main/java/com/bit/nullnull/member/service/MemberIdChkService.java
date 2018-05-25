@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bit.nullnull.member.dao.LoginDao;
+import com.bit.nullnull.member.dao.MemberEditDao;
 import com.bit.nullnull.member.model.Member;
 
 public class MemberIdChkService {
@@ -12,7 +13,7 @@ public class MemberIdChkService {
 		private SqlSessionTemplate sqlSessionTemplate;  
 
 		private LoginDao dao;
-		
+	
 		public String idChk(String id) {
 			
 			dao = sqlSessionTemplate.getMapper(LoginDao.class);
@@ -21,4 +22,5 @@ public class MemberIdChkService {
 			
 			return member == null ? "Y":"N";
 		}
+		
 }

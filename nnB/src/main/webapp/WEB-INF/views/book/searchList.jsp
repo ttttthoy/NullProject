@@ -42,8 +42,8 @@ function check(){
 <body>
 	<center>
 		<form method="post" onSubmit="return check()">
-			<input type="text" name="keyword" id="keyword"> 
-			<input type="submit" value="검색">
+			<input type="text" name="keyword" id="keyword"> <input type="submit"
+				value="검색">
 		</form>
 
 	</center>

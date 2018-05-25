@@ -24,7 +24,7 @@ public class bookSearchService {
 		System.out.println(keyword);
 		String text = URLEncoder.encode(keyword, "UTF-8");
 		
-		URL url = new URL("https://openapi.naver.com/v1/search/book.xml?query=" + text);
+		URL url = new URL("https://openapi.naver.com/v1/search/book.xml?query=" + text + "&display=100");
 
 		URLConnection urlConn = url.openConnection(); // openConnection 해당 요청에 대해서 쓸 수 있는 connection 객체
 
@@ -161,7 +161,7 @@ public class bookSearchService {
 						b.setPubdate(parser.nextText());
 					break;
 				case "isbn":
-					if (b != null)
+					if (b != null)	
 						b.setIsbn(parser.nextText());
 					break;
 				case "description":

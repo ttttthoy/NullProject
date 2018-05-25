@@ -349,7 +349,7 @@ background-image: none;
 		<td>${note.b_title }</td>
 		<td>${note.member_num }</td>
 		<td>
-			<a href="/book/note/${note.note_id}/${note.mem_id}/Anote">보기</a>
+			<a href="/book/note/${note.note_id}/Anote">보기</a>
 		</td>
 	</tr>
 	</c:forEach>

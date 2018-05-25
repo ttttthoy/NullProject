@@ -6,9 +6,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Home</title>
 	<style>
+		
+		* {
+			padding : 0;
+		}
+		
 		a {
 		  text-decoration: none;
 		  color: inherit;
+		  display : block;
 		}
 		
 		body {
