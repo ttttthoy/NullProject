@@ -18,9 +18,9 @@ public class noteLikeCheckController {
 	
 	@RequestMapping(value="/note/like", method=RequestMethod.POST)
 	@ResponseBody
-	public void idChk(@RequestParam(name="note_id") int note_id, @RequestParam(name="mem_id") int mem_id, @RequestParam(name="status") boolean status) {
+	public void idChk(@RequestParam(name="note_id") int note_id, @RequestParam(name="member_num") int member_num, @RequestParam(name="status") boolean status) {
 		
-		Like like = new Like(note_id, mem_id);
+		Like like = new Like(note_id, member_num);
 		
 		System.out.println("idCHK : " + like);
 		

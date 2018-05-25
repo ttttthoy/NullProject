@@ -35,6 +35,7 @@ public class bookSearchService {
 
 		String data = "";
 		String msg = null;
+				
 		while ((msg = br.readLine()) != null) {
 			// System.out.println(msg);
 			data += msg;

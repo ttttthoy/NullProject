@@ -26,6 +26,8 @@ public class bookSearchController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String searchList(@RequestParam(name="keyword") String keyword, Model model) throws Exception {
 		
+		System.out.println(keyword);
+		
 		String data = service.getBookAllData(keyword);
 		
 		System.out.println(data);

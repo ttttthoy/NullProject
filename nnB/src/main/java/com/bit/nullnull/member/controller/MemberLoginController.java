@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.bit.nullnull.member.model.Member;
 import com.bit.nullnull.member.service.MemberLoginService;
 
@@ -27,12 +29,10 @@ public class MemberLoginController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String login(@RequestParam(value = "member_id", defaultValue = "0") String id,
-			@RequestParam(value = "password", required = false) String pw, HttpSession session) {
+			@RequestParam(value = "password", required = false) String pw, Model model, HttpSession session) {
 
 		System.out.println(id);
 		System.out.println(pw);
-
-		String view = "redirect:mypage"; 
 
 		Member member = memberLoginService.loginChk(id, pw);
 
@@ -41,13 +41,14 @@ public class MemberLoginController {
 		}
 
 		session.setAttribute("loginInfo", member);
+		
+		model.addAttribute("member", session.getAttribute("loginInfo"));
 
 		System.out.println(session.getAttribute("loginInfo"));
 
-		return view;
+		return "mainPage";
 	}
 
-	 
 	// 로그아웃 처리
 
     @RequestMapping("/member/logout")

@@ -31,14 +31,20 @@ public class noteListService {
 
 	public List<Note> getNoteListbyIsbn(String isbn) {
 
-
 		dao = sqlSessionTemplate.getMapper(NoteDao.class);
 		
 		List<Note> notelist = dao.selectNoteListByIsbn(isbn);
 		
 		return notelist;
 	}
-	
-	
+
+	public List<Note> getMyNoteList(int member_num) {
+		
+		dao = sqlSessionTemplate.getMapper(NoteDao.class);
+		
+		List<Note> notelist = dao.selectNoteListByMem_num(member_num);
+		
+		return notelist;
+	}
 	
 }

@@ -25,4 +25,6 @@ public interface NoteDao {
 
 	List<Note> selectNoteListByIsbn(String isbn);
 
+	List<Note> selectNoteListByMem_num(int member_num);
+
 }

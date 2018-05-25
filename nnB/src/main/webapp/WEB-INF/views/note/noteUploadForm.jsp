@@ -25,13 +25,14 @@
 	<br>
 	<form method="post">
 		<input type="hidden" name="isbn" value="${book.isbn}">
-		<input type="hidden" name="mem_id" value="${session.member_num }">
+		<input type="hidden" name="member_num" value="${session.member_num }">
 		<input type="hidden" name="like" value="0">
 		<input type="hidden" name="b_title" value="${book.title}">
 		<input type="hidden" name="b_imag" value="${book.imag}">
 		<input type="hidden" name="b_author" value="${book.author}">
 		<input type="hidden" name="b_publisher" value="${book.publisher}">
 		<input type="hidden" name="b_pubdate" value="${book.pubdate}">
+		<input type="hidden" name="b_description" value="${book.description }">
 		
 		<table>
 			<tr>
@@ -50,9 +51,15 @@
 				<td>출판년도 | ${book.pubdate }</td>
 			</tr>
 			<tr>
+				<td>줄거리 | ${book.description }</td>
+			</tr>
+			<tr>
 			</tr>
 			<tr>
 				<td>독서 노트 </td>
+			</tr>
+			<tr>
+				<td><input type="text" name="note_title" id="note_title"></td>
 			</tr>
 			<tr>
 				<td>

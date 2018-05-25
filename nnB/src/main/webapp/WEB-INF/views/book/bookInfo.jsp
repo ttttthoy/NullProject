@@ -79,7 +79,7 @@ var starRating = function(){
 .star-input>.input>input:checked+label{
 display: inline-block;
 vertical-align:middle;
-background:url('resources/img/grade_img.png')no-repeat;
+background:url('/book/resources/img/grade_img.png')no-repeat;
 }
 .star-input{
 display:inline-block; 
@@ -258,6 +258,9 @@ background-image: none;
          <td>출판년도 | ${book.pubdate }</td>
       </tr>
       <tr>
+      	<td>줄거리 | ${book.description }</td>
+      </tr>
+      <tr>
          <td>별점 | ${avgStar }</td>
       </tr>
       <tr>	
@@ -265,41 +268,10 @@ background-image: none;
       </tr>
    </table>
 
-   <h2>리뷰</h2>
-
-   <table>
-      <tr>
-         <td>별</td>
-         <td>등록날짜</td>
-         <td>아이디</td>
-         <td>리뷰</td>
-      </tr>
-      <c:forEach var="review" items="${r_list }" varStatus="status">
-         <tr>
-            <td>${review.r_star }</td>
-            <td>${review.reg_date }</td>
-            <td>${review.mem_id }</td>
-            <td>${review.r_content }</td>
-         
-
-         <c:if test="${member.member_num == review.mem_id }">
-         	<input type="hidden" id="r_id" value="${review.r_id }">
-           <td> <a href="" onclick="return delchk();">삭제</a> </td>
-         </c:if>
-			
-		</tr>
-
-         <input type="hidden" id="isbn" value="${review.isbn }">
-         <input type="hidden" id="mem_id" value="${member.member_num }">
-
-      </c:forEach>
-
-   </table>
 
    <h3>리뷰 작성</h3>
    <br>
-
-      
+   
    <span class="star-input">
    	<span class="input">
        <input type="radio" name="star-input" value="0.5" id="p0.5">
@@ -331,6 +303,38 @@ background-image: none;
    <br>
    <input type="button" id="r_but" value='등록'>
    
+
+   <h2>리뷰</h2>
+
+   <table>
+      <tr>
+         <td>별</td>
+         <td>등록날짜</td>
+         <td>아이디</td>
+         <td>리뷰</td>
+      </tr>
+      <c:forEach var="review" items="${r_list }" varStatus="status">
+         <tr>
+            <td>${review.r_star }</td>
+            <td>${review.reg_date }</td>
+            <td>${review.mem_id }</td>
+            <td>${review.r_content }</td>
+         
+
+         <c:if test="${member.member_num == review.mem_id }">
+         	<input type="hidden" id="r_id" value="${review.r_id }">
+           <td> <a href="" onclick="return delchk();">삭제</a> </td>
+         </c:if>
+			
+		</tr>
+
+         <input type="hidden" id="isbn" value="${review.isbn }">
+         <input type="hidden" id="mem_id" value="${member.member_num }">
+
+      </c:forEach>
+
+   </table>
+  
    <h3>독서노트 리스트</h3>
    
    <table>
@@ -343,7 +347,7 @@ background-image: none;
 	<c:forEach var="note" items="${notes}" varStatus="status">
 	<tr>
 		<td>${note.b_title }</td>
-		<td>${note.mem_id }</td>
+		<td>${note.member_num }</td>
 		<td>
 			<a href="note/${note.note_id}/${note.mem_id}/Anote">보기</a>
 		</td>

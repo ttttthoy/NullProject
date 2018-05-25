@@ -5,14 +5,16 @@ import java.util.Date;
 public class Note {
 
 	private int note_id;
-	private int mem_id;
+	private int member_num;
 	private String isbn;
 	private String b_title;
 	private String b_imag;
 	private String b_author;
 	private String b_publisher;
 	private String b_pubdate;
+	private String b_description;
 	private Date upload_date;
+	private String note_title;
 	private String note_contents;
 	private int pub_priv;
 	private int joayo;
@@ -20,21 +22,24 @@ public class Note {
 	Note() {
 	}
 
-	public Note(int note_id, int mem_id, String isbn, String title, String imag, String author, String publisher,
-			String pubdate, Date upload_date, String note_contents, int pub_priv, int like) {
+	public Note(int note_id, int member_num, String isbn, String b_title, String b_imag, String b_author,
+			String b_publisher, String b_pubdate, String b_description, Date upload_date, String note_title,
+			String note_contents, int pub_priv, int joayo) {
 		super();
 		this.note_id = note_id;
-		this.mem_id = mem_id;
+		this.member_num = member_num;
 		this.isbn = isbn;
-		this.b_title = title;
-		this.b_imag = imag;
-		this.b_author = author;
-		this.b_publisher = publisher;
-		this.b_pubdate = pubdate;
+		this.b_title = b_title;
+		this.b_imag = b_imag;
+		this.b_author = b_author;
+		this.b_publisher = b_publisher;
+		this.b_pubdate = b_pubdate;
+		this.b_description = b_description;
 		this.upload_date = upload_date;
+		this.note_title = note_title;
 		this.note_contents = note_contents;
 		this.pub_priv = pub_priv;
-		this.joayo = like;
+		this.joayo = joayo;
 	}
 
 	public String getB_title() {
@@ -85,12 +90,12 @@ public class Note {
 		this.note_id = note_id;
 	}
 
-	public int getMem_id() {
-		return mem_id;
+	public int getMember_num() {
+		return member_num;
 	}
 
-	public void setMem_id(int mem_id) {
-		this.mem_id = mem_id;
+	public void setMember_num(int member_num) {
+		this.member_num = member_num;
 	}
 
 	public String getIsbn() {
@@ -129,20 +134,36 @@ public class Note {
 		this.pub_priv = pub_priv;
 	}
 
-	public int getLike() {
+	public String getB_description() {
+		return b_description;
+	}
+
+	public void setB_description(String b_description) {
+		this.b_description = b_description;
+	}
+
+	public int getJoayo() {
 		return joayo;
 	}
 
-	public void setLike(int like) {
-		this.joayo = like;
+	public void setJoayo(int joayo) {
+		this.joayo = joayo;
+	}
+	
+	public String getNote_title() {
+		return note_title;
+	}
+
+	public void setNote_title(String note_title) {
+		this.note_title = note_title;
 	}
 
 	@Override
 	public String toString() {
-		return "Note [note_id=" + note_id + ", mem_id=" + mem_id + ", isbn=" + isbn + ", b_title=" + b_title
+		return "Note [note_id=" + note_id + ", member_num=" + member_num + ", isbn=" + isbn + ", b_title=" + b_title
 				+ ", b_imag=" + b_imag + ", b_author=" + b_author + ", b_publisher=" + b_publisher + ", b_pubdate="
-				+ b_pubdate + ", upload_date=" + upload_date + ", note_contents=" + note_contents + ", pub_priv="
-				+ pub_priv + ", like=" + joayo + "]";
+				+ b_pubdate + ", b_description=" + b_description + ", upload_date=" + upload_date + ", note_title="
+				+ note_title + ", note_contents=" + note_contents + ", pub_priv=" + pub_priv + ", joayo=" + joayo + "]";
 	}
 
 	

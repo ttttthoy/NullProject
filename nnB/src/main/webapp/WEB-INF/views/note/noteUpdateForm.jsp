@@ -18,15 +18,18 @@
 </head>
 <body>
 <form method="post">
+
 		<input type="hidden" name="note_id" value="${note.note_id }">
 		<input type="hidden" name="isbn" value="${note.isbn }">
-		<input type="hidden" name="mem_id" value="1">
-		<input type="hidden" name="like" value="0">
+		<input type="hidden" name="member_num" value="${note.member_num }">
+		<input type="hidden" name="joayo" value="${note.joayo }">
 		<input type="hidden" name="b_title" value="${note.b_title}">
 		<input type="hidden" name="b_imag" value="${note.b_imag}">
 		<input type="hidden" name="b_author" value="${note.b_author}">
 		<input type="hidden" name="b_publisher" value="${note.b_publisher}">
 		<input type="hidden" name="b_pubdate" value="${note.b_pubdate}">
+		<input type="hidden" name="b_description" value="${note.b_description }">
+		
 		
 	<table>
 			<tr>
@@ -45,9 +48,14 @@
 				<td>출판년도 | ${note.b_pubdate }</td>
 			</tr>
 			<tr>
+				<td>줄거리 | ${note.b_description }</td>
 			</tr>
 			<tr>
 				<td>독서 노트 </td>
+			</tr>
+			<tr>
+				<td>
+				<input type="text" name="note_title" id="note_title" value="${note.note_title }"></td>
 			</tr>
 			<tr>
 				<td>

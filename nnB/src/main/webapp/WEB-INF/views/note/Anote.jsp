@@ -18,7 +18,7 @@ $(document).ready(function(){
 				dataType : 'text',
 				data : {
 					note_id : $('#note_id').val(),
-					mem_id : $('#mem_id').val(),
+					member_num : $('#member_num').val(),
 					status : $('#status').val()
 				},
 				success : function(data) {
@@ -37,7 +37,7 @@ $(document).ready(function(){
 </script>
 
 <input type="hidden" id="note_id" value="${note.note_id }">
-<input type="hidden" id="mem_id" value="${note.mem_id }">
+<input type="hidden" id="member_num" value="${note.member_num }">
 <input type="hidden" id="status" value="${status }">
 <body>
 	<table>
@@ -54,6 +54,7 @@ $(document).ready(function(){
 			<td>출판년도 | ${note.b_pubdate }</td>
 		</tr>
 		<tr>
+			<td>줄거리 | ${note.b_description }</td>
 		</tr>
 		<tr>
 			<td>독서 노트</td>

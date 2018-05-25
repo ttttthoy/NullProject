@@ -50,6 +50,7 @@ public class Book {
 
 			isbn = isbn.replaceAll("<b>", "");
 			isbn = isbn.replaceAll("</b>", "");
+			isbn = isbn.replaceAll(" ", "");
 
 			return isbn;
 		}

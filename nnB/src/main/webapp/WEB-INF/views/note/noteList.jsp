@@ -13,17 +13,15 @@
 <title>독서 노트 리스트</title>
 </head>
 <body>
-<h3> 독서노트 리스트 </h3>
+<h3> 나의 독서노트 리스트 </h3>
 
 <table>
 
 	<tr>
 		<td>No.</td>
 		<td>책</td>
-		<td>저자</td>
-		<td>회원 번호</td>
-		<td>공개여부</td>
-		<td>츄즈원</td>
+		<td>작가</td>
+		<td>날짜</td>
 	</tr>
 
 	<c:forEach var="note" items="${notes}" varStatus="status">
@@ -31,7 +29,7 @@
 		<td>${note.note_id }</td>
 		<td>${note.b_title }</td>
 		<td>${note.b_author }</td>
-		<td>${note.mem_id }</td>
+		<td>${note.upload_date }</td>
 		<td>
 		<c:if test="${note.pub_priv == '1' }">
 		비공개
@@ -41,9 +39,9 @@
 		</c:if>
 		</td>
 		<td>
-			<a href="${note.note_id}/${note.mem_id}/Anote">보기</a>
-			<a href="${note.note_id }/noteUpdate">수정</a>
-			<a href="${note.note_id}/noteDelete">삭제</a>
+			<a href="../${note.note_id}/Anote">보기</a>
+			<a href="../${note.note_id }/noteUpdate">수정</a>
+			<a href="../${note.note_id}/noteDelete">삭제</a>
 		</td>
 	</tr>
 	</c:forEach>
