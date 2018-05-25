@@ -9,10 +9,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+	
+function check(){
+	  if($.trim($("#keyword").val())==""){
+	 	  alert("키워드를 입력하세요!");
+	  	 return false;
+	  } 
+	  return true;
+}
+	
+</script>
 <body>
     <center>
-       <form method="post">
-            <input type="text" name="keyword" >
+       <form method="post" onSubmit="return check()">
+            <input type="text" name="keyword" id="keyword" >
             <input type="submit" value="검색">
         </form>
         
