@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<mvc:annotation-driven />
+
+	<mvc:resources location="/WEB-INF/resources/css/"
+		mapping="/css/**" />
+	<mvc:resources location="/WEB-INF/resources/js/"
+		mapping="/js/**" />
+
+
+	<beans:bean id="searchpwDao"
+		class="com.bit.nullnull.passwordch.searchpwDao">
+		<beans:constructor-arg ref="dataSource" />
+	</beans:bean>
+
+	<beans:bean id="ChangepwDao"
+		class="com.bit.nullnull.passwordch.ChangepwDao">
+		<beans:constructor-arg ref="dataSource" />
+	</beans:bean>
+	
+	<beans:bean id="searchpwService"
+		class="com.bit.nullnull.passwordch.SearchpwService" />
+
+<beans:bean id="ChangepwService"
+		class="com.bit.nullnull.passwordch.ChangepwService" />
+		
+<beans:bean id="simpleRegistrationNotifier2"
+		class="com.bit.nullnull.member.service.SimpleRegistrationNotifier2" />
+		
+
+</beans:beans>
+		
