@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +26,7 @@ public class bookReadController {
 	private bookSearchService bss;
 	
 	
-	@RequestMapping("/book")
+	@RequestMapping("/")
 	public String storeb() {
 		return "book/bookStoreForm";
 	}
@@ -46,7 +45,8 @@ public class bookReadController {
 	}
 	
 	@RequestMapping(value = "/storeBook", method = RequestMethod.POST)
-	public @ResponseBody String storebt(@RequestBody ReadBook readbook, Model model, HttpSession session) {
+	@ResponseBody
+	public String storebt(ReadBook readbook, Model model, int isbn, int member_num, int state_num, HttpSession session) {
 		System.out.println(readbook);
 		
 		int resultCnt = brss.bookStore(readbook);

@@ -237,6 +237,99 @@ background-image: none;
 
 </script>
 
+	<!-- 읽었어요  -->
+	<script>	
+	$(document).ready(function(){
+		
+		$('#booklike').click(function(){
+			
+			var read1 = $('#num0').val();
+			var read2 = $('#num1').val();
+			var read3 = $('#num2').val();
+	
+			
+				$("#num0").click(function(){	
+				var Num0 = $(this).val();
+			
+					$.ajax({
+						url : '<%= request.getContextPath()%>/storeBook',
+						type : 'post',
+						dataType : 'text',
+						data : {
+							isbn : $('#isbn').val(),
+							member_num : $('#member_num').val(),
+							state_num : $('#state_num').val(),							
+						},
+						success : function(data){
+							if(data == "num0"){
+								$('#sucread').alert('읽었어요!');
+	
+							}else{
+									
+							}
+						}
+					});
+	
+				});
+				
+				//읽고있어요
+				$("#num1").click(function(){	
+				var Num0 = $(this).val();
+			
+					$.ajax({
+						url : '<%= request.getContextPath()%>/storeBook',
+						type : 'post',
+						dataType : 'text',
+						data : {
+							isbn : $('#isbn').val(),
+							member_num : $('#member_num').val(),
+							state_num : $('#state_num').val(),							
+						},
+						success : function(data){
+							if(data == "num1"){
+								$('#sucread').alert('읽고있어요!');
+	
+							}else{
+									
+							}
+						}
+					});
+	
+				});
+					
+				//읽고싶어요
+				$("#num2").click(function(){	
+					var Num0 = $(this).val();
+				
+						$.ajax({
+							url : '<%= request.getContextPath()%>/storeBook',
+							type : 'post',
+							dataType : 'text',
+							data : {
+								isbn : $('#isbn').val(),
+								member_num : $('#member_num').val(),
+								state_num : $('#state_num').val(),							
+							},
+							success : function(data){
+								if(data == "num2"){
+									$('#sucread').alert('읽고싶어요!');
+		
+								}else{
+										
+								}
+							}
+						});
+		
+					});
+
+				
+			});
+	});		
+
+</script>
+
+
+
 
 <body>
    <h1>책 정보 페이지</h1>
@@ -344,7 +437,7 @@ background-image: none;
 	<c:forEach var="note" items="${notes}" varStatus="status">
 	<tr>
 		<td>${note.b_title }</td>
-		<td>${note.member_num }</td>
+		<td>${note.member_num }</td> 
 		<td>
 			<a href="/book/note/${note.note_id}/Anote">보기</a>
 		</td>
@@ -356,9 +449,9 @@ background-image: none;
 	<table>
 		<tr>
 			<td>
-				<input type="submit" value="읽었어요">
-				<input type="submit" value="읽고있어요">
-				<input type="submit" value="읽고싶어요">
+				<input type="button" value="읽었어요" id="num0">
+				<input type="button" value="읽고있어요" id="num1">
+				<input type="button" value="읽고싶어요" id="num2">
 			</td>	
 		</tr>
 	</table>

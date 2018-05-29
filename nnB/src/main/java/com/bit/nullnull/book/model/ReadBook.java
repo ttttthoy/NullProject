@@ -1,17 +1,19 @@
 package com.bit.nullnull.book.model;
 
+import java.util.Date;
+
 public class ReadBook {
 	
 		private int isbn; 	//도서번호
 		private int member_num;
-		private String date;
+		private Date date;
 		private int state_num;
 
 		
 		public ReadBook() {}
 		
 
-		public ReadBook(int isbn, int member_num, String date, int state_num) {
+		public ReadBook(int isbn, int member_num, Date date, int state_num) {
 			super();
 			this.isbn = isbn;
 			this.member_num = member_num;
@@ -41,12 +43,12 @@ public class ReadBook {
 		}
 
 
-		public String getDate() {
+		public Date getDate() {
 			return date;
 		}
 
 
-		public void setDate(String date) {
+		public void setDate(Date date) {
 			this.date = date;
 		}
 
@@ -63,7 +65,7 @@ public class ReadBook {
 
 		@Override
 		public String toString() {
-			return "readbook [isbn=" + isbn + ", member_num=" + member_num + ", date=" + date + ", state_num=" + state_num
+			return "readbook [isbn=" + isbn + ", member_num=" + member_num + ", Date=" + date + ", state_num=" + state_num
 					+ "]";
 		}
 		
