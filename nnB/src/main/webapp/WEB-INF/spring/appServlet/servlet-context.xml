@@ -39,7 +39,7 @@
 		<beans:property name="password" value="dnjs1ghk" />
 	</beans:bean>
 
-	<beans:bean id="noteUploadService"
+		<beans:bean id="noteUploadService"
 		class="com.bit.nullnull.booknote.service.noteUploadService" />
 
 	<beans:bean id="noteListService"
@@ -62,6 +62,8 @@
 
 	<beans:bean id="MemberEditService" class="com.bit.nullnull.member.service.MemberEditService" />
 	
+	<beans:bean id="MemberNumChkService" class="com.bit.nullnull.member.service.MemberNumChkService"/>
+
 	<beans:bean id="MemberFollowService" class="com.bit.nullnull.member.service.MemberFollowService"/>
 
 	<!-- 실제 이미지 저장할 경로 -->
