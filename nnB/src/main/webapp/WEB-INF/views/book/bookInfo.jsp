@@ -352,6 +352,19 @@ background-image: none;
 	</c:forEach>
 </table>
    
+	<form action="bookStore" id="storeForm" method="post" enctype="multipart/form-data">
+	<table>
+		<tr>
+			<td>
+				<input type="submit" value="읽었어요">
+				<input type="submit" value="읽고있어요">
+				<input type="submit" value="읽고싶어요">
+			</td>	
+		</tr>
+	</table>
+
+	</form>   
+   
 
 </body>
 </html>

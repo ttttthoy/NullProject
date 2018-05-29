@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+	<mapper namespace="com.bit.nullnull.mybatis.mapper.bookMapper">
+
+	
+	<select id="selectByIsbn" resultType="com.bit.nullnull.book.model.ReadBook">	
+		SELECT * FROM MEMBER WHERE ISBN = #{isbn} 		
+	</select>	
+	
+	
+	<select id="selectList" resultType="com.bit.nullnull.book.model.ReadBook">	
+		SELECT * FROM read_book  		
+	</select>
+
+
+	<insert id="insertBook" parameterType="com.bit.nullnull.book.model.ReadBook">
+		insert into read_book (isbn, date, member_num, state_num)
+		values ( #{isbn}, #{date}, #{member_num}, #{state_num} ) 
+	</insert>
+	
+</mapper>
+
+
+

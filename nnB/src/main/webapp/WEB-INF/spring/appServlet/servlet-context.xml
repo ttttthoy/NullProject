@@ -65,6 +65,8 @@
 	<beans:bean id="MemberNumChkService" class="com.bit.nullnull.member.service.MemberNumChkService"/>
 
 	<beans:bean id="MemberFollowService" class="com.bit.nullnull.member.service.MemberFollowService"/>
+	
+	<beans:bean id="bookReadStoreService" class="com.bit.nullnull.book.service.bookReadStoreService"/>
 
 	<!-- 실제 이미지 저장할 경로 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
