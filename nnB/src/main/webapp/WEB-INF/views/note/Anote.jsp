@@ -19,7 +19,7 @@ $(document).ready(function(){
 				data : {
 					note_id : $('#note_id').val(),
 					member_num : $('#member_num').val(),
-					status : $('#status').val()
+					status : $('#l_status').val()
 				},
 				success : function(data) {
 				}
@@ -33,14 +33,45 @@ $(document).ready(function(){
 				$(this).val('♡LIKE♡');
 			}
 		})
+		
+		$('#follow').click(function(){
+	        
+	        $.ajax({
+	           url: '<%=request.getContextPath()%>/member/follow',
+					type : 'post',
+					dataType : 'text',
+					data : {
+						follower : $('#session_num').val(),
+						following : $('#member_num').val(),
+						f_status : $('#f_status').val()
+					},
+					success : function(data) {
+					}
+				})
+
+				if ($(this).val() == '팔로우') {
+					$(this).val('팔로잉');
+				}
+
+				else {
+					$(this).val('팔로우');
+				}
+			})
+			
 	})
 </script>
 
 <input type="hidden" id="note_id" value="${note.note_id }">
 <input type="hidden" id="member_num" value="${note.member_num }">
 <input type="hidden" id="status" value="${status }">
+<input type="hidden" id="session_num" value="${session.member_num }">
 <body>
+
+	<img src="/book/resources/profileImg/${session.member_photo }" alt="프로필사진" width="50px" height="50px"> ${session.member_name }님
+
+
 	<table>
+		
 		<tr>
 			<td><img src="${note.b_imag }"> ${book.title }</td>
 		</tr>
@@ -62,13 +93,25 @@ $(document).ready(function(){
 		<tr>
 			<td>${note.note_contents }</td>
 		</tr>
+		<tr>	
+			<td>
+			<img src="/book/resources/profileImg/${noteMem.member_photo }"  alt="프로필사진" width="50px" height="50px"> 
+			${noteMem.member_name } 
+			<c:if test="${f_status }">
+			<input type="button" id="follow" value="팔로잉" >
+			</c:if>
+			<c:if test="${f_status }">
+			<input type="button" id="follow" value="팔로우"></c:if>
+			</td>
+		</tr>
 		<tr>
-			<td><c:if test="${status}">
-					<input type='button' id='like' value='♥LIKED♥'>
-				</c:if> <c:if test="${!status }">
-					<input type='button' id='like' value='♡LIKE♡'>
-				</c:if></td>
-
+			<td>
+			<c:if test="${l_status}">
+				<input type='button' id='like' value='♥LIKED♥'>
+			</c:if> <c:if test="${!l_status }">
+				<input type='button' id='like' value='♡LIKE♡'>
+			</c:if>
+			</td>
 		</tr>
 	</table>
 

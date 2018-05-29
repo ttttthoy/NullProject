@@ -16,21 +16,21 @@ public class bookReviewController {
 	@Autowired
 	private bookReviewService brs;
 
-	@RequestMapping(value="/bookInfo/review", method = RequestMethod.POST)
+	@RequestMapping(value="/review/upload")
 	@ResponseBody
-	public void reviewUpload(@RequestParam(name="isbn")String isbn, @RequestParam(name="r_star")double r_star, @RequestParam(name="mem_id")int mem_id, @RequestParam(name="r_content")String r_content){
-		
+	public void reviewUpload(@RequestParam(name="isbn")String isbn, @RequestParam(name="r_star")double r_star, @RequestParam(name="member_num")int member_num, @RequestParam(name="r_content")String r_content){
+
 		Review review = new Review();
 		
 		System.out.println(isbn);
 		review.setIsbn(isbn);
 		System.out.println(r_content);
 		System.out.println(r_star);
-		System.out.println(mem_id);
+		System.out.println(member_num);
 		review.setR_content(r_content);
 		review.setR_like(0);
 		review.setR_star(r_star);
-		review.setMem_id(mem_id);
+		review.setMem_id(member_num);
 		
 		int rc = brs.uploadReview(review);
 		

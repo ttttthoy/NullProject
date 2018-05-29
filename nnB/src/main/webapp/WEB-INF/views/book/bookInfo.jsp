@@ -12,7 +12,6 @@
 
 </head>
 
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<c:url value="/resources/js/jquery-1.11.3.min.js" />"></script>
 
 
@@ -189,13 +188,13 @@ background-image: none;
       $('#r_but').click(function(){
          
          $.ajax({
-            url: '<%=request.getContextPath()%>/bookInfo/review',
+            url: '<%=request.getContextPath()%>/review/upload',
             type : 'post',
             dataType : 'text',
             data : {
                isbn : $('#isbn').val(),
                r_star : $("input[type=radio][name=star-input]:checked").val(),
-               mem_id : $('#mem_id').val(),
+               member_num : $('#member_num').val(),
                r_content : $('#r_content').val()
             },
             success : function(data) {
@@ -242,7 +241,6 @@ background-image: none;
 <body>
    <h1>책 정보 페이지</h1>
    <br>
-
    <table>
 
       <tr>
@@ -299,6 +297,9 @@ background-image: none;
      <output for="star-input"><b>0</b></output>                  
 </span>
 
+   <input type="hidden" name="isbn" id="isbn" value="${book.isbn }">
+   <input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
+   
    <textarea name="r_content" id="r_content"></textarea>
    <br>
    <input type="button" id="r_but" value='등록'>
@@ -327,10 +328,6 @@ background-image: none;
          </c:if>
 			
 		</tr>
-
-         <input type="hidden" id="isbn" value="${review.isbn }">
-         <input type="hidden" id="mem_id" value="${member.member_num }">
-
       </c:forEach>
 
    </table>
