@@ -61,6 +61,8 @@
 		class="com.bit.nullnull.book.service.bookReviewService" />
 
 	<beans:bean id="MemberEditService" class="com.bit.nullnull.member.service.MemberEditService" />
+	
+	<beans:bean id="MemberFollowService" class="com.bit.nullnull.member.service.MemberFollowService"/>
 
 	<!-- 실제 이미지 저장할 경로 -->
 	<beans:bean id="uploadPath" class="java.lang.String">

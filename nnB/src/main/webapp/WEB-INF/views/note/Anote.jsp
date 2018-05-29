@@ -34,7 +34,7 @@ $(document).ready(function(){
 			}
 		})
 		
-		$('#follow').click(function(){
+	$('#follow').click(function(){
 	        
 	        $.ajax({
 	           url: '<%=request.getContextPath()%>/member/follow',
@@ -61,10 +61,7 @@ $(document).ready(function(){
 	})
 </script>
 
-<input type="hidden" id="note_id" value="${note.note_id }">
-<input type="hidden" id="member_num" value="${note.member_num }">
-<input type="hidden" id="status" value="${status }">
-<input type="hidden" id="session_num" value="${session.member_num }">
+
 <body>
 
 	<img src="/book/resources/profileImg/${session.member_photo }" alt="프로필사진" width="50px" height="50px"> ${session.member_name }님
@@ -96,12 +93,21 @@ $(document).ready(function(){
 		<tr>	
 			<td>
 			<img src="/book/resources/profileImg/${noteMem.member_photo }"  alt="프로필사진" width="50px" height="50px"> 
-			${noteMem.member_name } 
-			<c:if test="${f_status }">
-			<input type="button" id="follow" value="팔로잉" >
+			${noteMem.member_name } 님
+			<input type="hidden" id="note_id" value="${note.note_id }">
+			<input type="hidden" id="member_num" value="${note.member_num }">
+			<input type="hidden" id="status" value="${status }">
+			<input type="hidden" id="session_num" value="${session.member_num }">
+			<input type="hidden" id="f_status" value="${f_status }">
+			
+			<c:if test="${session.member_num != note.member_num}">
+				<c:if test="${f_status}">
+					<input type='button' id='follow' value='팔로잉'>
+				</c:if> 
+				<c:if test="${!f_status }">
+					<input type='button' id='follow' value='팔로우'>
+				</c:if>
 			</c:if>
-			<c:if test="${f_status }">
-			<input type="button" id="follow" value="팔로우"></c:if>
 			</td>
 		</tr>
 		<tr>
