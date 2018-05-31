@@ -265,7 +265,7 @@ background-image: none;
 					member_num : $('#member_num').val(),
 					state_num : $('#state_num').val(),							
 				},
-				success : function(data){
+				success : function(data){ 
 				
 						$('#sucread').alert('읽었어요!');
 

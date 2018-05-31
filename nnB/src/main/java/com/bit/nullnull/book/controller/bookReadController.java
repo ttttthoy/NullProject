@@ -14,7 +14,7 @@ import com.bit.nullnull.book.service.bookSearchService;
 @Controller
 public class bookReadController {
 	
-	@Autowired
+	@Autowired  
 	private bookReadStoreService brss;
 	
 	
