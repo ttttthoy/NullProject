@@ -10,11 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bit.nullnull.book.model.Book;
 import com.bit.nullnull.book.model.Review;
+import com.bit.nullnull.book.service.bookReadStoreService;
 import com.bit.nullnull.book.service.bookReviewService;
 import com.bit.nullnull.book.service.bookSearchService;
 import com.bit.nullnull.booknote.model.Note;
@@ -32,6 +31,9 @@ public class bookInfoController {
 	
 	@Autowired
 	private noteListService nls;
+	
+	@Autowired
+	private bookReadStoreService brss;
 	
 	@RequestMapping(value="/bookInfo/{isbn}", method = RequestMethod.GET)
 	public String specificBookInfo(@PathVariable(name="isbn") String isbn, Model model, HttpSession session) throws Exception {

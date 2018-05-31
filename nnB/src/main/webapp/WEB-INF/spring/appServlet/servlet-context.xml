@@ -131,6 +131,8 @@
 		class="com.bit.nullnull.booknote.dao.noteMyBatisDao" />
 	<beans:bean id="myBatisDao2"
 		class="com.bit.nullnull.member.dao.MemberMyBatisDao" />
+	<beans:bean id="myBatisDao3"
+		class="com.bit.nullnull.book.dao.bookReadMybatisDao"/>	
 
 	<!-- 트랜젝션 처리 시작 -->
 	<beans:bean id="transactionManager"

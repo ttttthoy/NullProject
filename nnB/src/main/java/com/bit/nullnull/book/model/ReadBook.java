@@ -5,15 +5,15 @@ import java.util.Date;
 public class ReadBook {
 	
 		private String isbn; 	//도서번호
-		private int member_num;
+		private String member_num;
 		private Date date;
-		private int state_num;
+		private String state_num;
 
 		
 		public ReadBook() {}
 		
 
-		public ReadBook(String isbn, int member_num, Date date, int state_num) {
+		public ReadBook(String isbn, String member_num, Date date, String state_num) {
 			super();
 			this.isbn = isbn;
 			this.member_num = member_num;
@@ -33,12 +33,12 @@ public class ReadBook {
 		}
 
 
-		public int getMember_num() {
+		public String getMember_num() {
 			return member_num;
 		}
 
 
-		public void setMember_num(int member_num) {
+		public void setMember_num(String member_num) {
 			this.member_num = member_num;
 		}
 
@@ -53,12 +53,12 @@ public class ReadBook {
 		}
 
 
-		public int getState_num() {
+		public String getState_num() {
 			return state_num;
 		}
 
 
-		public void setState_num(int state_num) {
+		public void setState_num(String state_num) {
 			this.state_num = state_num;
 		}
 

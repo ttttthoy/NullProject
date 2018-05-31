@@ -242,21 +242,20 @@ background-image: none;
 
 	<!-- 읽었어요  -->
 	<script>	
-	$(document).ready(function(){
+//	$(document).ready(function(){
 		
-/* 		$('#booklike').click(function(){
+ 		$('#num0').click(function(){
  		
-			var read1 = $('#num0').val();
+/* 			var read1 = $('#num0').val();
 			var read2 = $('#num1').val();
 			var read3 = $('#num2').val();
 					
-			});  */
+ */ 
+
+		alert(num0);   
 		
-		$("#num0").click(function(){	
-/* 		var num0 = $(this).val();
-		
-		alert(num0); */
-	
+		//function store(){
+			
 			$.ajax({
 				url : '<%=request.getContextPath()%>/storeBook',
 				type : 'post',
@@ -267,19 +266,22 @@ background-image: none;
 					state_num : $('#state_num').val(),							
 				},
 				success : function(data){
-					if(data == "num0"){
+				
 						$('#sucread').alert('읽었어요!');
 
-					}else{
-							
-					}
+/* 		               location.reload();
+		               $('#book').val(""); */
+					
 				}
-			});
+			})
 
-		});
+			
+		
+		})
+//	})
 		
 
-		//읽고있어요
+<%-- 		//읽고있어요
 		$("#num1").click(function(){	
 		var num1 = $(this).val();
 	
@@ -330,7 +332,7 @@ background-image: none;
 
 			});		
 		
-	});		
+	});		 --%>
 
 </script>
 
@@ -455,9 +457,14 @@ background-image: none;
 	<table>
 		<tr>
 			<td>
-				<input type="button" value="읽었어요" id="num0">
+			
+				<input type="hidden" name="isbn" id="isbn" value="${book.isbn }">
+				<input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
+
+ 
+				<input type="button" value="읽었어요" id="num0"> 
 				<input type="button" value="읽고있어요" id="num1">
-				<input type="button" value="읽고싶어요" id="num2">
+				<input type="button" value="읽고싶어요" id="num2"> 
 			</td>	
 		</tr>
 	</table>

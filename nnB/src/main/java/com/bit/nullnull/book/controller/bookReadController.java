@@ -1,21 +1,15 @@
 package com.bit.nullnull.book.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bit.nullnull.book.model.Book;
 import com.bit.nullnull.book.model.ReadBook;
 import com.bit.nullnull.book.service.bookReadStoreService;
 import com.bit.nullnull.book.service.bookSearchService;
-import com.bit.nullnull.member.model.Member;
 
 @Controller
 public class bookReadController {
@@ -23,15 +17,17 @@ public class bookReadController {
 	@Autowired
 	private bookReadStoreService brss;
 	
-/*	@Autowired
-	private bookSearchService bss;*/
+	
+	@Autowired
+	private bookSearchService bss;
 	
 /*	
 	@RequestMapping("bookInfo")
 	public String storeb() {
 		return "/book/bookInfo";
 	}
-	
+*/
+	/*
 	@RequestMapping(value ="/storeBook", method = RequestMethod.GET)
 	public String storeForm(@PathVariable(name = "isbn") String isbn, Model model, HttpSession session) throws Exception
 	{
@@ -44,10 +40,10 @@ public class bookReadController {
 		
 	}*/
 	
-	@RequestMapping(value ="/book/storeBook")
+	@RequestMapping(value ="/storeBook", method=RequestMethod.POST)
 	@ResponseBody
-	public void storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")int member_num, @RequestParam(name="state_num")int state_num,  ReadBook readbook, Model model) {
-		System.out.println(readbook);
+	public void storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")String member_num, @RequestParam(name="state_num")String state_num) {
+		//System.out.println(readbook);
 		
 		ReadBook readBook = new ReadBook();
 
@@ -56,7 +52,7 @@ public class bookReadController {
 		readBook.setState_num(state_num);
 		
 		
-		int resultCnt = brss.bookStore(readbook);
+		int resultCnt = brss.bookStore(readBook);
 		
 		String msg = "도서가 담겼습니당(ㅇㅅㅇ)/";
 		

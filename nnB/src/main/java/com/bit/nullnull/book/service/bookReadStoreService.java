@@ -10,7 +10,6 @@ import com.bit.nullnull.book.model.ReadBook;
 
 
 public class bookReadStoreService {
-
 	
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
