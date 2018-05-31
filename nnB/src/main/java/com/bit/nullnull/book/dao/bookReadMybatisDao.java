@@ -14,4 +14,4 @@ public class bookReadMybatisDao {
 		return sqlSessionTemplate.update(ns+".insertBook", readbook);
 	}
 
-}  
+}   

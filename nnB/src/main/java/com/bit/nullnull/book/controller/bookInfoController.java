@@ -20,7 +20,7 @@ import com.bit.nullnull.booknote.model.Note;
 import com.bit.nullnull.booknote.service.noteListService;
 import com.bit.nullnull.member.model.Member;
 
-@Controller   
+@Controller    
 public class bookInfoController {
 	
 	@Autowired
