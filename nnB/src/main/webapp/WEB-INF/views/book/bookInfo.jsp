@@ -223,13 +223,14 @@ background-image: none;
 				data : {
 					r_id : $('#r_id').val()
 				},
-				sucess : function(data){
+				success : function(data){
 					
 				}
 			})
 			
-	        return true;
-	    } else {
+	      return true;
+	    
+		} else {
 	        return false;
 	    }
 	
@@ -237,93 +238,98 @@ background-image: none;
 
 </script>
 
+
+
 	<!-- 읽었어요  -->
 	<script>	
 	$(document).ready(function(){
 		
-		$('#booklike').click(function(){
-			
+/* 		$('#booklike').click(function(){
+ 		
 			var read1 = $('#num0').val();
 			var read2 = $('#num1').val();
 			var read3 = $('#num2').val();
-	
-			
-				$("#num0").click(function(){	
-				var Num0 = $(this).val();
-			
-					$.ajax({
-						url : '<%= request.getContextPath()%>/storeBook',
-						type : 'post',
-						dataType : 'text',
-						data : {
-							isbn : $('#isbn').val(),
-							member_num : $('#member_num').val(),
-							state_num : $('#state_num').val(),							
-						},
-						success : function(data){
-							if(data == "num0"){
-								$('#sucread').alert('읽었어요!');
-	
-							}else{
-									
-							}
-						}
-					});
-	
-				});
-				
-				//읽고있어요
-				$("#num1").click(function(){	
-				var Num0 = $(this).val();
-			
-					$.ajax({
-						url : '<%= request.getContextPath()%>/storeBook',
-						type : 'post',
-						dataType : 'text',
-						data : {
-							isbn : $('#isbn').val(),
-							member_num : $('#member_num').val(),
-							state_num : $('#state_num').val(),							
-						},
-						success : function(data){
-							if(data == "num1"){
-								$('#sucread').alert('읽고있어요!');
-	
-							}else{
-									
-							}
-						}
-					});
-	
-				});
 					
-				//읽고싶어요
-				$("#num2").click(function(){	
-					var Num0 = $(this).val();
-				
-						$.ajax({
-							url : '<%= request.getContextPath()%>/storeBook',
-							type : 'post',
-							dataType : 'text',
-							data : {
-								isbn : $('#isbn').val(),
-								member_num : $('#member_num').val(),
-								state_num : $('#state_num').val(),							
-							},
-							success : function(data){
-								if(data == "num2"){
-									$('#sucread').alert('읽고싶어요!');
+			});  */
 		
-								}else{
-										
-								}
-							}
-						});
+		$("#num0").click(function(){	
+/* 		var num0 = $(this).val();
 		
-					});
+		alert(num0); */
+	
+			$.ajax({
+				url : '<%=request.getContextPath()%>/storeBook',
+				type : 'post',
+				dataType : 'text',
+				data : {
+					isbn : $('#isbn').val(),
+					member_num : $('#member_num').val(),
+					state_num : $('#state_num').val(),							
+				},
+				success : function(data){
+					if(data == "num0"){
+						$('#sucread').alert('읽었어요!');
 
-				
+					}else{
+							
+					}
+				}
 			});
+
+		});
+		
+
+		//읽고있어요
+		$("#num1").click(function(){	
+		var num1 = $(this).val();
+	
+			$.ajax({
+				url : '<%=request.getContextPath()%>/storeBook',
+				type : 'post',
+				dataType : 'text',
+				data : {
+					isbn : $('#isbn').val(),
+					member_num : $('#member_num').val(),
+					state_num : $('#state_num').val(),							
+				},
+				success : function(data){
+					if(data == "num1"){
+						$('#sucread').alert('읽고있어요!');
+
+					} else{
+							
+					}
+				}
+			});
+
+		});
+		
+	
+		//읽고싶어요
+		$("#num2").click(function(){	
+			var num2 = $(this).val();
+		
+				$.ajax({
+					url : '<%= request.getContextPath()%>/storeBook',
+					type : 'post',
+					dataType : 'text',
+					data : {
+						isbn : $('#isbn').val(),
+						member_num : $('#member_num').val(),
+						state_num : $('#state_num').val(),							
+					},
+					success : function(data){
+						if(data == "num2"){
+							$('#sucread').alert('읽고싶어요!');
+
+						}else{
+								
+						}
+					}
+				});
+
+			});		
+		
 	});		
 
 </script>
@@ -445,7 +451,7 @@ background-image: none;
 	</c:forEach>
 </table>
    
-	<form action="bookStore" id="storeForm" method="post" enctype="multipart/form-data">
+	<!-- <form action="bookStore" method="post" enctype="multipart/form-data"> -->
 	<table>
 		<tr>
 			<td>
@@ -456,7 +462,10 @@ background-image: none;
 		</tr>
 	</table>
 
-	</form>   
+
+
+
+	<!-- </form>  -->  
    
 
 </body>

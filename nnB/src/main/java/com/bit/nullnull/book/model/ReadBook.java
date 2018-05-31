@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReadBook {
 	
-		private int isbn; 	//도서번호
+		private String isbn; 	//도서번호
 		private int member_num;
 		private Date date;
 		private int state_num;
@@ -13,7 +13,7 @@ public class ReadBook {
 		public ReadBook() {}
 		
 
-		public ReadBook(int isbn, int member_num, Date date, int state_num) {
+		public ReadBook(String isbn, int member_num, Date date, int state_num) {
 			super();
 			this.isbn = isbn;
 			this.member_num = member_num;
@@ -23,12 +23,12 @@ public class ReadBook {
 
 
 
-		public int getIsbn() {
+		public String getIsbn() {
 			return isbn;
 		}
 
 
-		public void setIsbn(int isbn) {
+		public void setIsbn(String isbn) {
 			this.isbn = isbn;
 		}
 

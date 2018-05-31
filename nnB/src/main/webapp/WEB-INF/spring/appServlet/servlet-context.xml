@@ -39,7 +39,7 @@
 		<beans:property name="password" value="dnjs1ghk" />
 	</beans:bean>
 
-		<beans:bean id="noteUploadService"
+	<beans:bean id="noteUploadService"
 		class="com.bit.nullnull.booknote.service.noteUploadService" />
 
 	<beans:bean id="noteListService"
