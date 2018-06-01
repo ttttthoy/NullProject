@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+<beans:bean id="chatHandler" class="com.bit.nullnull.socketchat.ChatWebSocketHandler"/>
+<beans:bean id="echoHandler" class="com.bit.nullnull.socketchat.EchoHandler"/>
+<websocket:handlers>
+    
+    <websocket:mapping handler="chatHandler" path="/chat" />
+    <websocket:mapping handler="echoHandler" path="/echo"/>
+    <websocket:sockjs />
+    
+</websocket:handlers>
+
+    
+
+</beans:beans>
