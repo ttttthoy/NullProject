@@ -3,24 +3,23 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-	<mapper namespace="com.bit.nullnnull.book.dao.bookReadDao">
+	<mapper namespace="com.bit.nullnull.book.dao.bookReadDao">
 
-	<select id="selectByIsbn" resultType="com.bit.nullnull.book.model.ReadBook">
+<!-- 	<select id="selectByIsbn" resultType="com.bit.nullnull.book.model.ReadBook">
 		SELECT * FROM read_book WHERE ISBN = #{isbn}
-	</select>
+	</select> -->
 
-	<select id="selectBooks" resultType="com.bit.nullnull.book.model.ReadBook">
+	<select id="selectStoreList" resultType="com.bit.nullnull.book.model.ReadBook">
 		SELECT * FROM read_book
 	</select>
 
-	<insert id="insertbook"
+	<insert id="storeBooks"
 			parameterType="com.bit.nullnull.book.model.ReadBook"
 			useGeneratedKeys="true" keyProperty="ISBN">
 		insert into read_book (isbn, date, member_num, state_num)
-		values ( #{isbn}, #{date}, #{member_num}, #{state_num} ) 		
+		values(#{isbn}, #{date}, #{member_num}, #{state_num}) 		
 			
 	</insert>
-
 
 
 </mapper>

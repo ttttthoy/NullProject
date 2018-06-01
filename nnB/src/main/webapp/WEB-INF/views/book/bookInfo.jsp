@@ -201,11 +201,85 @@ background-image: none;
                location.reload();
                $('#review').val("");
             }
-         })
+         });
 
-      })
+      });
+      
+      
+      //읽었어요
+      $('#num0').click(function(){
+    	  
+    	  //alert(1);
+    	  
 
-   })
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 0,							
+    			},
+    			success : function(data){ 
+    				alert('읽었어요!');
+
+    			}
+    		});	 
+    	  
+    })
+      
+    //읽고있어요
+      $('#num1').click(function(){
+    	  
+    	  //alert(1);
+    	  
+
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 1,							
+    			},
+    			success : function(data){ 
+    				alert('읽고있어요!');
+
+    			}
+    		});	 
+    	  
+    });
+    
+    
+    //읽고싶어요
+      $('#num2').click(function(){
+    	  
+    	  //alert(1);
+    	  
+
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 2,							
+    			},
+    			success : function(data){ 
+    				alert('읽고싶어요!');
+
+    			}
+    		});	 
+    	  
+    });
+    
+    
+      
+
+   });
 </script>
 
 <!-- 리뷰 삭제 -->
@@ -237,106 +311,6 @@ background-image: none;
 	}
 
 </script>
-
-
-
-	<!-- 읽었어요  -->
-	<script>	
-//	$(document).ready(function(){
-		
- 		$('#num0').click(function(){
- 		
-/* 			var read1 = $('#num0').val();
-			var read2 = $('#num1').val();
-			var read3 = $('#num2').val();
-					
- */ 
-
-		alert(num0);   
-		
-		//function store(){
-			
-			$.ajax({
-				url : '<%=request.getContextPath()%>/storeBook',
-				type : 'post',
-				dataType : 'text',
-				data : {
-					isbn : $('#isbn').val(),
-					member_num : $('#member_num').val(),
-					state_num : $('#state_num').val(),							
-				},
-				success : function(data){ 
-				
-						$('#sucread').alert('읽었어요!');
-
-/* 		               location.reload();
-		               $('#book').val(""); */
-					
-				}
-			})
-
-		  	
-		
-		})
-//	})
-		
-
-<%-- 		//읽고있어요
-		$("#num1").click(function(){	
-		var num1 = $(this).val();
-	
-			$.ajax({
-				url : '<%=request.getContextPath()%>/storeBook',
-				type : 'post',
-				dataType : 'text',
-				data : {
-					isbn : $('#isbn').val(),
-					member_num : $('#member_num').val(),
-					state_num : $('#state_num').val(),							
-				},
-				success : function(data){
-					if(data == "num1"){
-						$('#sucread').alert('읽고있어요!');
-
-					} else{
-							
-					}
-				}
-			});
-
-		});
-		
-	
-		//읽고싶어요
-		$("#num2").click(function(){	
-			var num2 = $(this).val();
-		
-				$.ajax({
-					url : '<%= request.getContextPath()%>/storeBook',
-					type : 'post',
-					dataType : 'text',
-					data : {
-						isbn : $('#isbn').val(),
-						member_num : $('#member_num').val(),
-						state_num : $('#state_num').val(),							
-					},
-					success : function(data){
-						if(data == "num2"){
-							$('#sucread').alert('읽고싶어요!');
-
-						}else{
-								
-						}
-					}
-				});
-
-			});		
-		
-	});		 --%>
-
-</script>
-
-
 
 
 <body>
