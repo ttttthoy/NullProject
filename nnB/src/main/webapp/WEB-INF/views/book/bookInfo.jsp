@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
@@ -8,7 +8,72 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 
+<!-- 페이스북 meta추가 -->
+<meta property="og:title" content="<?=imgsharetitle>"/>
+<meta property="og:image" content="<?=imgshareimage>"/>
+<meta property="og:description" content="<?=imgsharedescription>"/>
+<meta property="og:type" content="website"/>
+
+
+
 <title>책정보 페이지</title>
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+// 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('앱키');
+ 
+    // 카카오톡 공유하기
+    function sendKakaoTalk()
+    {
+    Kakao.Link.sendTalkLink({
+      label: '공유 제목',
+      image: {
+        src: 'http://이미지경로',
+        width: '300',
+        height: '200'
+      },
+      webButton: {
+        text: '공유제목',
+        url: 'https://도메인' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+    }
+ 
+    // 카카오스토리 공유하기
+      function shareStory() {
+        Kakao.Story.share({
+          url: '도메인',
+          text: '공유제목'
+        });
+      }
+ 
+ 
+    // send to SNS
+    function toSNS(sns, strTitle, strURL) {
+        var snsArray = new Array();
+        var strMsg = strTitle + " " + strURL;
+        var image = "이미지경로";
+ 
+        snsArray['twitter'] = "http://twitter.com/home?status=" + encodeURIComponent(strTitle) + ' ' + encodeURIComponent(strURL);
+        snsArray['facebook'] = "http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(strURL);
+        snsArray['blog'] = "http://blog.naver.com/openapi/share?url=" + encodeURIComponent(strURL) + "&title=" + encodeURIComponent(strTitle);
+
+        window.open(snsArray[sns]);
+    }
+ 
+    function copy_clip(url) {
+        var IE = (document.all) ? true : false;
+        if (IE) {
+            window.clipboardData.setData("Text", url);
+            alert("이 글의 단축url이 클립보드에 복사되었습니다.");
+        } else {
+            temp = prompt("이 글의 단축url입니다. Ctrl+C를 눌러 클립보드로 복사하세요", url);
+        }
+    }
+</script>
+    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+
 
 </head>
 
@@ -55,127 +120,139 @@ var starRating = function(){
 
 <style>
 #main {
-   float: left;
-   width: 950px;
-   height: 600px;
-   text-algin: center;
-   vertical-algin: middle;
-   overflow: auto;
+	float: left;
+	width: 950px;
+	height: 600px;
+	text-algin: center;
+	vertical-algin: middle;
+	overflow: auto;
 }
 
 #review {
-   width: 800px;
-   heigh: 600px;
+	width: 800px;
+	heigh: 600px;
 }
 </style>
 
 <!-- 별점 -->
 
 <style>
-.star-input>.input,
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{
-display: inline-block;
-vertical-align:middle;
-background:url('/book/resources/img/grade_img.png')no-repeat;
+.star-input>.input, .star-input>.input>label:hover, .star-input>.input>input:focus+label,
+	.star-input>.input>input:checked+label {
+	display: inline-block;
+	vertical-align: middle;
+	background: url('/book/resources/img/grade_img.png') no-repeat;
 }
-.star-input{
-display:inline-block; 
-white-space:nowrap;
-width:225px;
-height:40px;
-padding:25px;
-line-height:30px;
+
+.star-input {
+	display: inline-block;
+	white-space: nowrap;
+	width: 225px;
+	height: 40px;
+	padding: 25px;
+	line-height: 30px;
 }
-.star-input>.input{
-display:inline-block;
-width:150px;
-background-size:150px;
-height:28px;
-white-space:nowrap;
-overflow:hidden;
-position: relative;
+
+.star-input>.input {
+	display: inline-block;
+	width: 150px;
+	background-size: 150px;
+	height: 28px;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
 }
-.star-input>.input>input{
-position:absolute;
-width:1px;
-height:1px;
-opacity:0;
+
+.star-input>.input>input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
 }
-star-input>.input.focus{
-outline:1px dotted #ddd;
+
+star-input>.input.focus {
+	outline: 1px dotted #ddd;
 }
-.star-input>.input>label{
-width:30px;
-height:0;
-padding:28px 0 0 0;
-overflow: hidden;
-float:left;
-cursor: pointer;
-position: absolute;
-top: 0;
-left: 0;
+
+.star-input>.input>label {
+	width: 30px;
+	height: 0;
+	padding: 28px 0 0 0;
+	overflow: hidden;
+	float: left;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-.star-input>.input>label:hover,
-.star-input>.input>input:focus+label,
-.star-input>.input>input:checked+label{
-background-size: 150px;
-background-position: 0 bottom;
+
+.star-input>.input>label:hover, .star-input>.input>input:focus+label,
+	.star-input>.input>input:checked+label {
+	background-size: 150px;
+	background-position: 0 bottom;
 }
-.star-input>.input>label:hover~label{
-background-image: none;
+
+.star-input>.input>label:hover ~label{
+	background-image: none;
 }
+
 .star-input>.input>label[for="p0.5"] {
-   width: 15px;
-   z-index: 10;
+	width: 15px;
+	z-index: 10;
 }
 
 .star-input>.input>label[for="p1"] {
-   width: 30px;
-   z-index: 9;
+	width: 30px;
+	z-index: 9;
 }
 
 .star-input>.input>label[for="p1.5"] {
-   width: 45px;
-   z-index: 8;
+	width: 45px;
+	z-index: 8;
 }
 
 .star-input>.input>label[for="p2"] {
-   width: 60px;
-   z-index: 7;
+	width: 60px;
+	z-index: 7;
 }
 
 .star-input>.input>label[for="p2.5"] {
-   width: 75px;
-   z-index: 6;
+	width: 75px;
+	z-index: 6;
 }
 
 .star-input>.input>label[for="p3"] {
-   width: 90px;
-   z-index: 5;
+	width: 90px;
+	z-index: 5;
 }
 
 .star-input>.input>label[for="p3.5"] {
-   width: 105px;
-   z-index: 4;
+	width: 105px;
+	z-index: 4;
 }
 
 .star-input>.input>label[for="p4"] {
-   width: 120px;
-   z-index: 3;
+	width: 120px;
+	z-index: 3;
 }
 
 .star-input>.input>label[for="p4.5"] {
-   width: 135px;
-   z-index: 2;
+	width: 135px;
+	z-index: 2;
 }
 
 .star-input>.input>label[for="p5"] {
-   width: 150px;
-   z-index: 1;
+	width: 150px;
+	z-index: 1;
 }
-.star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+.star-input>output {
+	display: inline-block;
+	width: 60px;
+	font-size: 18px;
+	text-align: right;
+	vertical-align: middle;
+}
 </style>
 
 <!-- 리뷰 저장 ajax -->
@@ -297,157 +374,157 @@ background-image: none;
 				data : {
 					r_id : $('#r_id').val()
 				},
-				success : function(data){
-					
+				success : function(data) {
+
 				}
 			})
-			
-	      return true;
-	    
-		} else {
-	        return false;
-	    }
-	
-	}
 
+			return true;
+
+		} else {
+			return false;
+		}
+
+	}
 </script>
 
 
 <body>
-   <h1>책 정보 페이지</h1>
-   <br>
-   <table>
-
-      <tr>
-         <td><img src="${book.imag }"> ${book.title }</td>
-      </tr>
-      <tr>
-         <td>저자 | ${book.author }</td>
-      </tr>
-      <tr>
-         <td>출판사 | ${book.publisher }</td>
-      </tr>
-      <tr>
-         <td>출판년도 | ${book.pubdate }</td>
-      </tr>
-      <tr>
-      	<td>줄거리 | ${book.description }</td>
-      </tr>
-      <tr>
-         <td>별점 | ${avgStar }</td>
-      </tr>
-      <tr>	
-      	<td>리뷰 수 | ${cntReview }</td>
-      </tr>
-   </table>
-
-
-   <h3>리뷰 작성</h3>
-   <br>
-   
-   <span class="star-input">
-   	<span class="input">
-       <input type="radio" name="star-input" value="0.5" id="p0.5">
-          <label for="p0.5">0.5</label>
-          <input type="radio" name="star-input" value="1" id="p1">
-          <label for="p1">1</label>
-          <input type="radio" name="star-input" value="1.5" id="p1.5">
-          <label for="p1.5">1.5</label>
-          <input type="radio" name="star-input" value="2" id="p2">
-          <label for="p2">2</label>
-          <input type="radio" name="star-input" value="2.5" id="p2.5">
-          <label for="p2.5">2.5</label>
-          <input type="radio" name="star-input" value="3" id="p3">
-          <label for="p3">3</label>
-          <input type="radio" name="star-input" value="3.5" id="p3.5">
-          <label for="p3.5">3.5</label>
-          <input type="radio" name="star-input" value="4" id="p4">
-          <label for="p4">4</label>
-             <input type="radio" name="star-input" value="4.5" id="p4.5">
-             <label for="p4.5">4.5</label>
-             <input type="radio" name="star-input" value="5" id="p5">
-          <label for="p5">5</label>
-     </span>
-          
-     <output for="star-input"><b>0</b></output>                  
-</span>
-
-   <input type="hidden" name="isbn" id="isbn" value="${book.isbn }">
-   <input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
-   
-   <textarea name="r_content" id="r_content"></textarea>
-   <br>
-   <input type="button" id="r_but" value='등록'>
-   
-
-   <h2>리뷰</h2>
-
-   <table>
-      <tr>
-         <td>별</td>
-         <td>등록날짜</td>
-         <td>아이디</td>
-         <td>리뷰</td>
-      </tr>
-      <c:forEach var="review" items="${r_list }" varStatus="status">
-         <tr>
-            <td>${review.r_star }</td>
-            <td>${review.reg_date }</td>
-            <td>${review.mem_id }</td>
-            <td>${review.r_content }</td>
-         
-
-         <c:if test="${member.member_num == review.mem_id }">
-         	<input type="hidden" id="r_id" value="${review.r_id }">
-           <td> <a href="" onclick="return delchk();">삭제</a> </td>
-         </c:if>
-			
-		</tr>
-      </c:forEach>
-
-   </table>
-  
-   <h3>독서노트 리스트</h3>
-   
-   <table>
-
-	<tr>
-		<td>책</td>
-		<td>회원 번호</td>
-	</tr>
-
-	<c:forEach var="note" items="${notes}" varStatus="status">
-	<tr>
-		<td>${note.b_title }</td>
-		<td>${note.member_num }</td> 
-		<td>
-			<a href="/book/note/${note.note_id}/Anote">보기</a>
-		</td>
-	</tr>
-	</c:forEach>
-</table>
-   
-	<!-- <form action="bookStore" method="post" enctype="multipart/form-data"> -->
+	<h1>책 정보 페이지</h1>
+	<br>
 	<table>
-		<tr>
-			<td>
-			
-				<input type="hidden" name="isbn" id="isbn" value="${book.isbn }">
-				<input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
 
- 
-				<input type="button" value="읽었어요" id="num0"> 
-				<input type="button" value="읽고있어요" id="num1">
-				<input type="button" value="읽고싶어요" id="num2"> 
-			</td>	
+		<tr>
+			<td><img src="${book.imag }"> ${book.title }</td>
+		</tr>
+		<tr>
+			<td>저자 | ${book.author }</td>
+		</tr>
+		<tr>
+			<td>출판사 | ${book.publisher }</td>
+		</tr>
+		<tr>
+			<td>출판년도 | ${book.pubdate }</td>
+		</tr>
+		<tr>
+			<td>줄거리 | ${book.description }</td>
+		</tr>
+		<tr>
+			<td>별점 | ${avgStar }</td>
+		</tr>
+		<tr>
+			<td>리뷰 수 | ${cntReview }</td>
 		</tr>
 	</table>
 
 
+	<h3>리뷰 작성</h3>
+	<br>
+
+	<span class="star-input"> <span class="input"> <input
+			type="radio" name="star-input" value="0.5" id="p0.5"> <label
+			for="p0.5">0.5</label> <input type="radio" name="star-input"
+			value="1" id="p1"> <label for="p1">1</label> <input
+			type="radio" name="star-input" value="1.5" id="p1.5"> <label
+			for="p1.5">1.5</label> <input type="radio" name="star-input"
+			value="2" id="p2"> <label for="p2">2</label> <input
+			type="radio" name="star-input" value="2.5" id="p2.5"> <label
+			for="p2.5">2.5</label> <input type="radio" name="star-input"
+			value="3" id="p3"> <label for="p3">3</label> <input
+			type="radio" name="star-input" value="3.5" id="p3.5"> <label
+			for="p3.5">3.5</label> <input type="radio" name="star-input"
+			value="4" id="p4"> <label for="p4">4</label> <input
+			type="radio" name="star-input" value="4.5" id="p4.5"> <label
+			for="p4.5">4.5</label> <input type="radio" name="star-input"
+			value="5" id="p5"> <label for="p5">5</label>
+	</span> <output for="star-input">
+			<b>0</b>
+		</output>
+	</span>
+
+	<input type="hidden" name="isbn" id="isbn" value="${book.isbn }">
+	<input type="hidden" name="member_num" id="member_num"
+		value="${member.member_num }">
+
+	<textarea name="r_content" id="r_content"></textarea>
+	<br>
+	<input type="button" id="r_but" value='등록'>
 
 
-	<!-- </form>  -->  
-   
+	<h2>리뷰</h2>
+
+	<table>
+		<tr>
+			<td>별</td>
+			<td>등록날짜</td>
+			<td>아이디</td>
+			<td>리뷰</td>
+		</tr>
+		<c:forEach var="review" items="${r_list }" varStatus="status">
+			<tr>
+				<td>${review.r_star }</td>
+				<td>${review.reg_date }</td>
+				<td>${review.mem_id }</td>
+				<td>${review.r_content }</td>
+
+
+				<c:if test="${member.member_num == review.mem_id }">
+					<input type="hidden" id="r_id" value="${review.r_id }">
+					<td><a href="" onclick="return delchk();">삭제</a></td>
+				</c:if>
+
+			</tr>
+		</c:forEach>
+
+	</table>
+
+	<h3>독서노트 리스트</h3>
+
+	<table>
+
+		<tr>
+			<td>책</td>
+			<td>회원 번호</td>
+		</tr>
+
+		<c:forEach var="note" items="${notes}" varStatus="status">
+			<tr>
+				<td>${note.b_title }</td>
+				<td>${note.member_num }</td>
+				<td><a href="/book/note/${note.note_id}/Anote">보기</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+
+	<!-- <form action="bookStore" method="post" enctype="multipart/form-data"> -->
+	<table>
+		<tr>
+			<td><input type="hidden" name="isbn" id="isbn" value="${book.isbn }"> 
+			<input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
+
+
+				<input type="button" value="읽었어요" id="num0"> 
+				<input type="button" value="읽고있어요" id="num1"> 
+				<input type="button" value="읽고싶어요" id="num2"></td>
+		</tr>
+	</table>
+
+	<table>
+		<div class="sns_wrap">
+			<p>SNS 공유하기</p>
+			<ul>
+				<a href="javascript:toSNS('facebook','공유제목','https://www.your-domain.com/your-page.html')"
+					title="페이스북으로 가져가기"><img src="facebook_Icon.jpg" width="50px"
+						height="50px"></a>
+				<a href="javascript:toSNS('twitter','공유제목!','http://http://단축URL')"
+					title="트위터로 가져가기"><img src="twitter_icon.jpg" width="50px"
+						height="50px"></a>
+				<a href="javascript:toSNS('blog','공유제목!','http://http://단축URL')" title="네이버블로그로 가져가기"><img src="/img/blog.jpg"></a>
+			</ul>
+		</div>
+	</table>
+	<!-- </form>  -->
+
 
 </body>
 </html>
