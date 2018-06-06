@@ -29,6 +29,7 @@
 	<li><a href="../note/noteList">독서노트 리스트</a>
 	<li><a href="../note/noteList/${member.member_num}">내 독서노트</a></li>
 	<li><a href="../bookSearch">책검색</a></li>
+	<li><a href="../bookCase">책장</a></li>
 </ul>
 
 </body>

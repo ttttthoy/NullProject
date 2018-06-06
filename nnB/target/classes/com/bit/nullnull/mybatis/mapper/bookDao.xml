@@ -16,8 +16,8 @@
 	<insert id="storeBooks"
 			parameterType="com.bit.nullnull.book.model.ReadBook"
 			useGeneratedKeys="true" keyProperty="ISBN">
-		insert into read_book (isbn, date, member_num, state_num)
-		values(#{isbn}, #{date}, #{member_num}, #{state_num}) 		
+		insert into read_book (isbn, member_num, state_num, imag)
+		values(#{isbn}, #{member_num}, #{state_num}, #{imag}) 		
 			
 	</insert>
 

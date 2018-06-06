@@ -8,19 +8,10 @@ public class ReadBook {
 		private String member_num;
 		private Date date;
 		private String state_num;
+		private String imag;
 
 		
 		public ReadBook() {}
-		
-
-		public ReadBook(String isbn, String member_num, Date date, String state_num) {
-			super();
-			this.isbn = isbn;
-			this.member_num = member_num;
-			this.date = date;
-			this.state_num = state_num;
-		}
-
 
 
 		public String getIsbn() {
@@ -63,11 +54,33 @@ public class ReadBook {
 		}
 
 
+		public String getImag() {
+			return imag;
+		}
+
+
+		public void setImag(String imag) {
+			this.imag = imag;
+		}
+
+
+		public ReadBook(String isbn, String member_num, Date date, String state_num, String imag) {
+			super();
+			this.isbn = isbn;
+			this.member_num = member_num;
+			this.date = date;
+			this.state_num = state_num;
+			this.imag = imag;
+		}
+
+
 		@Override
 		public String toString() {
-			return "readbook [isbn=" + isbn + ", member_num=" + member_num + ", Date=" + date + ", state_num=" + state_num
-					+ "]";
+			return "ReadBook [isbn=" + isbn + ", member_num=" + member_num + ", date=" + date + ", state_num="
+					+ state_num + ", imag=" + imag + "]";
 		}
+		
+
 		
 		
 

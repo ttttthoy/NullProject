@@ -296,7 +296,8 @@ star-input>.input.focus {
     			data : {
     				isbn : $('#isbn').val(),
     				member_num : $('#member_num').val(),
-    				state_num : 0,							
+    				state_num : 0,	
+    				imag : $('#imag').val()
     			},
     			success : function(data){ 
     				alert('읽었어요!');
@@ -319,7 +320,8 @@ star-input>.input.focus {
     			data : {
     				isbn : $('#isbn').val(),
     				member_num : $('#member_num').val(),
-    				state_num : 1,							
+    				state_num : 1,		
+    				imag : $('#imag').val()
     			},
     			success : function(data){ 
     				alert('읽고있어요!');
@@ -343,7 +345,8 @@ star-input>.input.focus {
     			data : {
     				isbn : $('#isbn').val(),
     				member_num : $('#member_num').val(),
-    				state_num : 2,							
+    				state_num : 2,		
+    				imag : $('#imag').val()
     			},
     			success : function(data){ 
     				alert('읽고싶어요!');
@@ -501,6 +504,8 @@ star-input>.input.focus {
 		<tr>
 			<td><input type="hidden" name="isbn" id="isbn" value="${book.isbn }"> 
 			<input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
+			<input type="hidden" name="imag" id="imag" value="${book.imag }">
+			${book.imag }
 
 
 				<input type="button" value="읽었어요" id="num0"> 
