@@ -41,7 +41,7 @@ public class bookReadController {
 	
 	@RequestMapping(value ="/storeBook", method=RequestMethod.POST)
 	@ResponseBody
-	public void storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")String member_num, 
+	public void storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")int member_num, 
 						@RequestParam(name="state_num")String state_num, @RequestParam(name="imag")String imag) {
 		//System.out.println(readbook);
 		
@@ -67,6 +67,8 @@ public class bookReadController {
 		System.out.println(msg);
 
 //		return "book/bookInfo";
+		
+
 		
 	}
 	

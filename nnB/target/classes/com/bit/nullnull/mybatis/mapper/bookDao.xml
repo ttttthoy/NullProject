@@ -21,5 +21,16 @@
 			
 	</insert>
 
+	<select id="selectStoreBookListPast" resultType="com.bit.nullnull.book.model.ReadBook">
+		SELECT * FROM read_book WHERE state_num = 0;
+	</select>
+	
+		<select id="selectStoreBookListCurrent" resultType="com.bit.nullnull.book.model.ReadBook">
+		SELECT * FROM read_book WHERE state_num = 1;
+	</select>
+	
+		<select id="selectStoreBookListFuture" resultType="com.bit.nullnull.book.model.ReadBook">
+		SELECT * FROM read_book WHERE state_num = 2;
+	</select>
 
 </mapper>

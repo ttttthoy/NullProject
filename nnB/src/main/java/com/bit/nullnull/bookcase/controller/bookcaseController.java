@@ -1,15 +1,21 @@
 package com.bit.nullnull.bookcase.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bit.nullnull.book.model.ReadBook;
 import com.bit.nullnull.book.service.bookReadStoreService;
 import com.bit.nullnull.book.service.bookSearchService;
+import com.bit.nullnull.bookcase.service.bookcaseService;
+import com.bit.nullnull.member.model.Member;
 
+@Controller
 public class bookcaseController {
 
 	@Autowired    
@@ -18,51 +24,60 @@ public class bookcaseController {
 	@Autowired
 	private bookSearchService bss;
 	
-/*	
-	@RequestMapping("bookInfo")
-	public String storeb() {
-		return "/book/bookInfo";
-	}
-*/
-	/*
-	@RequestMapping(value ="/storeBook", method = RequestMethod.GET)
-	public String storeForm(@PathVariable(name = "isbn") String isbn, Model model, HttpSession session) throws Exception
-	{
-		String data = bss.getBookAllData(isbn);
-		Book book = bss.getABook(data);
-		model.addAttribute("book", book);
-		model.addAttribute("session", session.getAttribute("loginInfo"));
-		return "book/bookInfo";	
-	}*/
+	@Autowired
+	private bookcaseService bcs;
+
 	
-	@RequestMapping(value ="/storeBookList", method=RequestMethod.POST)
-	@ResponseBody
-	public String storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")String member_num, 
-						@RequestParam(name="state_num")String state_num, @RequestParam(name="imag")String imag) {
+	@RequestMapping("/bookcase")
+	public String storeList(){
 		
-		ReadBook readBook = new ReadBook();
-
-		//System.out.println(imag);
-		
-		readBook.getIsbn();
-		readBook.getMember_num();
-		readBook.getState_num();
-		readBook.getImag();
-		
-		//System.out.println(readBook);
-		
-/*		int resultCnt = brss.bookStore(readBook);*/
-		
-		String msg = "읽었어요 도서목록 뜬다!!";
-		
-/*		if(resultCnt == 0) {
-			msg = "도서가 안담겼어요ㅠㅠ";
-		}*/
-		
-		System.out.println(msg);
-
 		return "bookcase/bookcase";
 		
+	}
+	
+	@RequestMapping("/bookcase/already")
+	public String mystoreList0(Model model,HttpSession session) {
+		
+		Member member = (Member) session.getAttribute("loginInfo");
+		
+		List<ReadBook> readbook = bcs.getStoreListPast(member.getMember_num());
+		
+		System.out.println(readbook);
+		
+		model.addAttribute("readbook", readbook);
+		
+		return "bookcase/already";
+	}
+	
+	
+	@RequestMapping("/bookcase/now")
+	public String mystoreList1(Model model,HttpSession session) {
+		
+		Member member = (Member) session.getAttribute("loginInfo");
+		
+		List<ReadBook> readbook = bcs.getStoreListCurrent(member.getMember_num());
+		
+		System.out.println(readbook);
+		
+		model.addAttribute("readbook", readbook);
+		
+		return "bookcase/now";
+	}
+	
+	
+	
+	@RequestMapping("/bookcase/willread")
+	public String mystoreList2(Model model,HttpSession session) {
+		
+		Member member = (Member) session.getAttribute("loginInfo");		
+		
+		List<ReadBook> readbook = bcs.getStoreListFuture(member.getMember_num());
+		
+		System.out.println(readbook);
+		
+		model.addAttribute("readbook", readbook);
+		
+		return "bookcase/willread";
 	}
 	
 	
