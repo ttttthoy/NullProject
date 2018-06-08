@@ -13,15 +13,14 @@
 <h3>읽었어요 도서리스트</h3>
 	
 	<table>
-			<%-- <img src="${bookread.imag }"></td> --%>
-				<c:if test="${bookread.state_num == 0}">
-				<c:forEach var="bookread" items="${readbook}" varStatus="status">
+
+ 			
+				<c:forEach var="bookread" items="${readbook}" varStatus="status"> 
 					<tr>
-							<td>${bookread.imag }</td>
-							<td>${bookread.member_num }</td>
+							<td><img src="${bookread.imag }"></td>
+							<%-- <td>${bookread.member_num }</td> --%>
 					</tr>
-				</c:forEach>
-				</c:if>
+				 </c:forEach> 
 				
 	</table>
 

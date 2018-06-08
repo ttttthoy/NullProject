@@ -6,40 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>읽고싶어요</title>
-<script>
-$('#num2').click(function(){
-	  
-	  //alert(1);
-	  
-		$.ajax({
-			url : '<%=request.getContextPath()%>/bookCase',
-			type : 'post',
-			dataType : 'text',
-			data : {
-				isbn : $('#isbn').val(),
-				member_num : $('#member_num').val(),
-				state_num : 2,		
-				imag : $('#imag').val()
-			},
-			success : function(data){ 
-				alert('읽고싶어요!');
-
-			}
-		});	   
-});
-
-
-</script>
 
 </head>
 <body>
 
-
-	<input type="hidden" name="isbn" id="isbn" value="${b.isbn }">
-	<input type="hidden" name="title" id="title" value="${b.title }">
-	<input type="hidden" name="imag" id="imag" value="${b.imag }">
+<h3>읽고싶어요 도서리스트</h3>
 	
-	<input type="button" value="읽고있어요" id="num2">
+	<table>
+
+ 			
+				<c:forEach var="bookread" items="${readbook}" varStatus="status"> 
+					<tr>
+							<td><img src="${bookread.imag }"></td>
+							<%-- <td>${bookread.member_num }</td> --%>
+					</tr>
+				 </c:forEach> 
+				
+	</table>
 
 </body>
 </html>
