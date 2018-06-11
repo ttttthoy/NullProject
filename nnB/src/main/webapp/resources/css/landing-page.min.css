@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;   
+}
+a {
+    text-decoration: none;
+}
+* {
+list-style: none;
+}
+body {
+	font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Nanum Myeongjo', serif;
+}
+h1,h3,h4,h5,h6
+{
+	font-family: 'Nanum Myeongjo', serif;
+}
+h2{
+	font-family: 'Nanum Myeongjo', serif;
+	font-size: 40px;
+	color:#008000;
+	font-weight:800; 
+}
+hr{
+	    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.navbar {
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	background-color: #efe6de;
+}
+
+.navbar-brand{
+	font-size: 25px;
+	font-weight: 400;
+}
+
+.member {
+	width: 40px;
+	border-radius: 50%;
+}
+
+header.masthead {
+	position: relative;
+	background-image: url('../jspimg/books-768426_1920.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding-top: 40px;
+	padding-bottom: 8rem;
+}
+
+.submenuLink { 
+	font-family: 'East Sea Dokdo', cursive;
+	color: #808080; 
+	background-color: white; 
+	border: solid 1px black; 
+	margin-top: -1px;
+	border:0;
+	background-color:#b3e3f7 ;
+	font-size: 20px;
+}
+
+
+.submenu {
+	border-radius: 10px;
+	position: absolute;
+	height: 0px;
+	width:100px;
+	overflow: hidden;
+	transition: height .2s;
+	-webkit-transition: height .2s;
+	-moz-transition: height .2s;
+	-o-transition: height .2s;
+	background-color: #b3e3f7;
+	margin-top: 6px;
+}
+
+.topMenuLi:hover .submenu {
+	height: 150px;
+}
+
+.submenuLink:hover {
+	color: gray;
+	background-color: #b3e3f7;
+}
+
+header.masthead .overlay {
+	position: absolute;
+	background-color: #6f7da6;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	opacity: .3;
+	padding-top: 40px;
+}
+
+header.masthead h1 {
+	font-size: 2rem
+}
+
+@media ( min-width :768px) {
+	header.masthead {
+		padding-top: 12rem;
+		padding-bottom: 12rem;
+		margin-top: 50px;
+	}
+	header.masthead h1 {
+		font-size: 3rem
+	}
+}
+
+.showcase .showcase-text {
+	padding: 3rem
+}
+
+.showcase .showcase-img {
+	min-height: 30rem;
+	background-size: cover
+}
+
+@media ( min-width :100%) {
+	.showcase .showcase-text {
+		padding: 7rem
+	}
+}
+
+.showcase {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.card {
+	width: 15%;
+	border: 0px solid gray;
+	box-shadow: .5px .5px 2px #888;
+	max-height: 100%;
+	margin: 0 auto;
+	margin-left: 3%;
+	margin-top: 5%;
+	margin-right: 3%;
+}
+
+#mainbox {
+	width: 60%;
+	margin: 0 auto;
+	font-family: calibri;
+	box-sizing: border-box;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.bookimg {
+	width: 100%;
+	margin: 0 auto;
+}
+
+h6 {
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom: 7%;
+	margin-top: 7%;
+	color: #000000;
+}
+
+.tabtotal {
+	width: 100%;
+}
+
+.tab button {
+	display: inline;
+	float: left;
+	margin-top: 4%;
+	margin-left: 25%;
+}
+.btn-wrap {
+    text-align: center;
+}
+footer.footer {
+	height: 10rem;
+	padding-top: 2rem;
+	padding-bottom: 1.5rem;
+}
+
+footer {
+	background-color: gray;
+}

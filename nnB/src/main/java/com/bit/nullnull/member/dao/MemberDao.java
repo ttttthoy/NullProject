@@ -44,7 +44,8 @@ public class MemberDao {
 		List<Member> result = jdbcTemplate.query(sql, new MemberRowMapper());
 		
 		return result;
-	}	
+	}
+
 	
 
 }

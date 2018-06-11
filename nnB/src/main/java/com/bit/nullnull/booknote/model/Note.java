@@ -6,6 +6,8 @@ public class Note {
 
 	private int note_id;
 	private int member_num;
+	private String member_name;
+	private String member_photo;
 	private String isbn;
 	private String b_title;
 	private String b_imag;
@@ -22,12 +24,14 @@ public class Note {
 	Note() {
 	}
 
-	public Note(int note_id, int member_num, String isbn, String b_title, String b_imag, String b_author,
-			String b_publisher, String b_pubdate, String b_description, Date upload_date, String note_title,
-			String note_contents, int pub_priv, int joayo) {
+	public Note(int note_id, int member_num, String member_name, String member_photo, String isbn, String b_title,
+			String b_imag, String b_author, String b_publisher, String b_pubdate, String b_description,
+			Date upload_date, String note_title, String note_contents, int pub_priv, int joayo) {
 		super();
 		this.note_id = note_id;
 		this.member_num = member_num;
+		this.member_name = member_name;
+		this.member_photo = member_photo;
 		this.isbn = isbn;
 		this.b_title = b_title;
 		this.b_imag = b_imag;
@@ -41,6 +45,8 @@ public class Note {
 		this.pub_priv = pub_priv;
 		this.joayo = joayo;
 	}
+
+
 
 	public String getB_title() {
 		return b_title;
@@ -96,6 +102,22 @@ public class Note {
 
 	public void setMember_num(int member_num) {
 		this.member_num = member_num;
+	}
+	
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+	public String getMember_photo() {
+		return member_photo;
+	}
+
+	public void setMember_photo(String member_photo) {
+		this.member_photo = member_photo;
 	}
 
 	public String getIsbn() {
@@ -160,12 +182,11 @@ public class Note {
 
 	@Override
 	public String toString() {
-		return "Note [note_id=" + note_id + ", member_num=" + member_num + ", isbn=" + isbn + ", b_title=" + b_title
-				+ ", b_imag=" + b_imag + ", b_author=" + b_author + ", b_publisher=" + b_publisher + ", b_pubdate="
-				+ b_pubdate + ", b_description=" + b_description + ", upload_date=" + upload_date + ", note_title="
-				+ note_title + ", note_contents=" + note_contents + ", pub_priv=" + pub_priv + ", joayo=" + joayo + "]";
+		return "Note [note_id=" + note_id + ", member_num=" + member_num + ", member_name=" + member_name
+				+ ", member_photo=" + member_photo + ", isbn=" + isbn + ", b_title=" + b_title + ", b_imag=" + b_imag
+				+ ", b_author=" + b_author + ", b_publisher=" + b_publisher + ", b_pubdate=" + b_pubdate
+				+ ", b_description=" + b_description + ", upload_date=" + upload_date + ", note_title=" + note_title
+				+ ", note_contents=" + note_contents + ", pub_priv=" + pub_priv + ", joayo=" + joayo + "]";
 	}
-
-	
 	
 }

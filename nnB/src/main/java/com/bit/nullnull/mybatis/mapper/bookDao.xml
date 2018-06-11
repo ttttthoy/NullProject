@@ -22,15 +22,15 @@
 	</insert>
 
 	<select id="selectStoreBookListPast" resultType="com.bit.nullnull.book.model.ReadBook">
-		SELECT * FROM read_book WHERE state_num = 0;
+		SELECT * FROM read_book WHERE state_num = 0 and member_num = #{member_num};
 	</select>
 	
 		<select id="selectStoreBookListCurrent" resultType="com.bit.nullnull.book.model.ReadBook">
-		SELECT * FROM read_book WHERE state_num = 1;
+		SELECT * FROM read_book WHERE state_num = 1 and member_num = #{member_num};
 	</select>
 	
 		<select id="selectStoreBookListFuture" resultType="com.bit.nullnull.book.model.ReadBook">
-		SELECT * FROM read_book WHERE state_num = 2;
+		SELECT * FROM read_book WHERE state_num = 2 and member_num = #{member_num};
 	</select>
 
 </mapper>

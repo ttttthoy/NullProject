@@ -4,25 +4,26 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bit.nullnull.member.dao.LoginDao">
-
+	
 	<select id="selectByNum" resultType="com.bit.nullnull.member.model.Member">
 		select * from Member where member_num = #{member_num}
 	</select>
-
-
-	<select id="selectById" resultType="com.bit.nullnull.member.model.Member">
-		SELECT * FROM Member WHERE member_id = #{id}
+	
+	<select id="selectById" resultType="com.bit.nullnull.member.model.Member">	
+		SELECT * FROM Member WHERE member_id = #{id} 		
+	</select>	
+	
+	<select id="selectList" resultType="com.bit.nullnull.member.model.Member">	
+		SELECT * FROM Member  		
 	</select>
 
-	<select id="selectList" resultType="com.bit.nullnull.member.model.Member">
-		SELECT * FROM Member
-	</select>
-
-	<insert id="insertMember" parameterType="com.bit.nullnull.member.model.Member"
-		useGeneratedKeys="true" keyProperty="member_num">
-		insert into Member ( member_id,	member_name, member_pw ) values ( #{member_id}, #{member_name}, #{member_pw} )
+	<insert id="insertMember" 
+			parameterType="com.bit.nullnull.member.model.Member"
+			useGeneratedKeys="true" keyProperty="member_num">
+		insert into Member ( member_id, member_name, member_pw ) 
+		values ( #{member_id}, #{member_name}, #{member_pw} )	
 	</insert>
-
+		
 </mapper>
 
 

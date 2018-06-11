@@ -5,6 +5,10 @@
 
 <mapper namespace="com.bit.nullnull.booknote.dao.NoteDao">
 
+	<select id="selectNoteListByDate" resultType="com.bit.nullnull.booknote.model.Note">
+		select * from booknotes where pub_priv=0 order by upload_date desc
+	</select>
+
 	<select id="selectNoteListByMem_num" resultType="com.bit.nullnull.booknote.model.Note">
 		select * from booknotes where member_num=#{member_num}
 	</select>
@@ -26,7 +30,7 @@
 	</select>
 	
 	<insert id="insertNote" parameterType="com.bit.nullnull.booknote.model.Note">
-		INSERT INTO booknotes (MEMBER_NUM, ISBN, NOTE_CONTENTS, NOTE_TITLE, PUB_PRIV, JOAYO, b_title, b_imag, b_author, b_publisher, b_pubdate, b_description) VALUES( #{member_num}, #{isbn}, #{note_contents}, #{note_title}, #{pub_priv}, #{joayo}, #{b_title}, #{b_imag}, #{b_author}, #{b_publisher}, #{b_pubdate}, #{b_description})
+		INSERT INTO booknotes (member_num, member_name, member_photo, isbn, b_title, b_imag, b_author, b_publisher, b_pubdate, b_description, note_title, note_contents, pub_priv, joayo) VALUES( #{member_num}, #{member_name}, #{member_photo}, #{isbn}, #{b_title}, #{b_imag}, #{b_author}, #{b_publisher}, #{b_pubdate}, #{b_description}, #{note_title}, #{note_contents}, #{pub_priv}, #{joayo})
 	</insert>
 	
 	<delete id="deleteNote" parameterType="com.bit.nullnull.booknote.model.Note">

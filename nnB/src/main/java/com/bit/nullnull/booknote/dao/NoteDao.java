@@ -27,4 +27,6 @@ public interface NoteDao {
 
 	List<Note> selectNoteListByMem_num(int member_num);
 
+	List<Note> selectNoteListByDate();
+
 }

@@ -15,7 +15,7 @@
 	</select>
 
 	<insert id="insertReview" parameterType="com.bit.nullnull.book.model.Review">
-		insert into book_review (isbn, r_content, r_star, r_like, mem_id) values( #{isbn}, #{r_content}, #{r_star}, #{r_like}, #{mem_id})
+		insert into book_review (isbn, r_content, r_star, r_like, mem_id, member_name, member_photo) values( #{isbn}, #{r_content}, #{r_star}, #{r_like}, #{mem_id}, #{member_name}, #{member_photo})
 	</insert>
 	
 	<select id="avgStar" parameterType="String" resultType="double">

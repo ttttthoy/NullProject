@@ -27,7 +27,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-   
+
 	<context:component-scan base-package="com.bit.nullnull" />
 
 	<!-- 데이터베이스 연결을 위한 dataSource 설정 -->
@@ -69,7 +69,8 @@
 	<beans:bean id="bookReadStoreService" class="com.bit.nullnull.book.service.bookReadStoreService"/>
 	
 	<beans:bean id="bookcaseService" class="com.bit.nullnull.bookcase.service.bookcaseService"/>
-
+	
+	
 	<!-- 실제 이미지 저장할 경로 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg
@@ -133,8 +134,6 @@
 		class="com.bit.nullnull.booknote.dao.noteMyBatisDao" />
 	<beans:bean id="myBatisDao2"
 		class="com.bit.nullnull.member.dao.MemberMyBatisDao" />
-	<beans:bean id="myBatisDao3"
-		class="com.bit.nullnull.book.dao.bookReadMybatisDao"/>	
 
 	<!-- 트랜젝션 처리 시작 -->
 	<beans:bean id="transactionManager"

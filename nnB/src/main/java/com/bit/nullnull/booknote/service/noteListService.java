@@ -46,5 +46,14 @@ public class noteListService {
 		
 		return notelist;
 	}
+
+	public List<Note> getNoteListByDate() {
+		
+		dao = sqlSessionTemplate.getMapper(NoteDao.class);
+		
+		List<Note> notes = dao.selectNoteListByDate();
+		
+		return notes;
+	}
 	
 }

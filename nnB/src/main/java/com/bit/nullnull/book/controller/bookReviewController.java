@@ -18,7 +18,7 @@ public class bookReviewController {
 
 	@RequestMapping(value="/review/upload")
 	@ResponseBody
-	public void reviewUpload(@RequestParam(name="isbn")String isbn, @RequestParam(name="r_star")double r_star, @RequestParam(name="member_num")int member_num, @RequestParam(name="r_content")String r_content){
+	public void reviewUpload(@RequestParam(name="isbn")String isbn, @RequestParam(name="r_star")double r_star, @RequestParam(name="member_num")int member_num, @RequestParam(name="member_name")String member_name, @RequestParam(name="member_photo")String member_photo, @RequestParam(name="r_content")String r_content){
 
 		Review review = new Review();
 		
@@ -31,6 +31,9 @@ public class bookReviewController {
 		review.setR_like(0);
 		review.setR_star(r_star);
 		review.setMem_id(member_num);
+		review.setMember_name(member_name);
+		review.setMember_photo(member_photo);
+		
 		
 		int rc = brs.uploadReview(review);
 		

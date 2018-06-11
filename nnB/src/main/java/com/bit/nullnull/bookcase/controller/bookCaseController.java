@@ -10,20 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bit.nullnull.book.model.ReadBook;
-import com.bit.nullnull.book.service.bookReadStoreService;
-import com.bit.nullnull.book.service.bookSearchService;
 import com.bit.nullnull.bookcase.service.bookcaseService;
 import com.bit.nullnull.member.model.Member;
 
 @Controller
 public class bookCaseController {
 
-	@Autowired    
-	private bookReadStoreService brss;
-	
-	@Autowired
-	private bookSearchService bss;
-	
 	@Autowired
 	private bookcaseService bcs;
 

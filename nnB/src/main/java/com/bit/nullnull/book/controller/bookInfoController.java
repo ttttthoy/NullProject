@@ -10,17 +10,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bit.nullnull.book.model.Book;
 import com.bit.nullnull.book.model.Review;
-import com.bit.nullnull.book.service.bookReadStoreService;
 import com.bit.nullnull.book.service.bookReviewService;
 import com.bit.nullnull.book.service.bookSearchService;
 import com.bit.nullnull.booknote.model.Note;
 import com.bit.nullnull.booknote.service.noteListService;
 import com.bit.nullnull.member.model.Member;
 
-@Controller    
+@Controller
 public class bookInfoController {
 	
 	@Autowired
@@ -32,15 +33,9 @@ public class bookInfoController {
 	@Autowired
 	private noteListService nls;
 	
-	@Autowired
-	private bookReadStoreService brss;
-	
 	@RequestMapping(value="/bookInfo/{isbn}", method = RequestMethod.GET)
 	public String specificBookInfo(@PathVariable(name="isbn") String isbn, Model model, HttpSession session) throws Exception {
 
-//		String isbn = "8972590630 9788972590637";
-
-//		System.out.println("1. " + isbn);
 		String data = bss.getBookAllData(isbn);
 		
 //		System.out.println("1. " + isbn);

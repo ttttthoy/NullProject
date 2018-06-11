@@ -5,11 +5,16 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bit.nullnull.book.model.Book;
 import com.bit.nullnull.book.service.bookSearchService;
@@ -29,12 +34,12 @@ public class noteUploadController {
 
 	@Autowired
 	private bookSearchService bss;
-
+	
 	@RequestMapping("/note")
 	public String noteMain() {
 		return "note/noteMenu";
 	}
-
+	
 	@RequestMapping(value = "/bookNote/{isbn}", method = RequestMethod.GET)
 	public String noteForm(@PathVariable(name = "isbn") String isbn, Model model, HttpSession session)
 			throws Exception {
@@ -52,7 +57,7 @@ public class noteUploadController {
 		return "note/noteUploadForm";
 	}
 
-	@RequestMapping(value = "/bookNote/{isbn}", method = RequestMethod.POST)
+	@RequestMapping(value = "/bookNote/{isbns}", method = RequestMethod.POST)
 	public String noteUpload(Note note, Model model, HttpSession session) {
 
 		System.out.println(note);

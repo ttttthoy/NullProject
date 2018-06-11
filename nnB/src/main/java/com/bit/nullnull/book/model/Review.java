@@ -10,13 +10,15 @@ public class Review {
 	private double r_star;
 	private int r_like;
 	private int mem_id;
+	private String member_name;
+	private String member_photo;
 	private Date reg_date;
 	private Date update_date;
 	
 	public Review(){}
 
-	public Review(int r_id, String isbn, String r_content, double r_star, int r_like, int mem_id, Date reg_date,
-			Date update_date) {
+	public Review(int r_id, String isbn, String r_content, double r_star, int r_like, int mem_id, String member_name,
+			String member_photo, Date reg_date, Date update_date) {
 		super();
 		this.r_id = r_id;
 		this.isbn = isbn;
@@ -24,9 +26,13 @@ public class Review {
 		this.r_star = r_star;
 		this.r_like = r_like;
 		this.mem_id = mem_id;
+		this.member_name = member_name;
+		this.member_photo = member_photo;
 		this.reg_date = reg_date;
 		this.update_date = update_date;
 	}
+
+
 
 	public int getR_id() {
 		return r_id;
@@ -80,6 +86,23 @@ public class Review {
 		this.mem_id = mem_id;
 	}
 
+	
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+
+	public String getMember_photo() {
+		return member_photo;
+	}
+
+	public void setMember_photo(String member_photo) {
+		this.member_photo = member_photo;
+	}
+
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -99,9 +122,9 @@ public class Review {
 	@Override
 	public String toString() {
 		return "Review [r_id=" + r_id + ", isbn=" + isbn + ", r_content=" + r_content + ", r_star=" + r_star
-				+ ", r_like=" + r_like + ", mem_id=" + mem_id + ", reg_date=" + reg_date + ", update_date="
-				+ update_date + "]";
+				+ ", r_like=" + r_like + ", mem_id=" + mem_id + ", member_name=" + member_name + ", member_photo="
+				+ member_photo + ", reg_date=" + reg_date + ", update_date=" + update_date + "]";
 	}
-	
+
 	
 }

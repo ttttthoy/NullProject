@@ -2,6 +2,8 @@ package com.bit.nullnull.member.controller;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bit.nullnull.booknote.model.Note;
+import com.bit.nullnull.booknote.service.noteListService;
 import com.bit.nullnull.member.model.Member;
 import com.bit.nullnull.member.service.MemberLoginService;
 
@@ -21,6 +25,9 @@ public class MemberLoginController {
 
 	@Autowired
 	private MemberLoginService memberLoginService;
+	
+	@Autowired
+	private noteListService nls;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String loginForm() {
@@ -45,6 +52,10 @@ public class MemberLoginController {
 		model.addAttribute("member", session.getAttribute("loginInfo"));
 
 		System.out.println(session.getAttribute("loginInfo"));
+		
+		List<Note> notes = nls.getNoteListByDate();
+		
+		model.addAttribute("notes", notes);
 
 		return "mainPage";
 	}
