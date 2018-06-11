@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReadBook {
 	
 		private String isbn; 	//도서번호
-		private int member_num;
+		private String member_num;
 		private Date date;
 		private String state_num;
 		private String imag;
@@ -24,12 +24,12 @@ public class ReadBook {
 		}
 
 
-		public int getMember_num() {
+		public String getMember_num() {
 			return member_num;
 		}
 
 
-		public void setMember_num(int member_num) {
+		public void setMember_num(String member_num) {
 			this.member_num = member_num;
 		}
 
@@ -64,7 +64,7 @@ public class ReadBook {
 		}
 
 
-		public ReadBook(String isbn, int member_num, Date date, String state_num, String imag) {
+		public ReadBook(String isbn, String member_num, Date date, String state_num, String imag) {
 			super();
 			this.isbn = isbn;
 			this.member_num = member_num;

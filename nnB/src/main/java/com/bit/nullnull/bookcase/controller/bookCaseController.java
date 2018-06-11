@@ -16,7 +16,7 @@ import com.bit.nullnull.bookcase.service.bookcaseService;
 import com.bit.nullnull.member.model.Member;
 
 @Controller
-public class bookcaseController {
+public class bookCaseController {
 
 	@Autowired    
 	private bookReadStoreService brss;
