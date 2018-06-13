@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-
+<%@ page import="java.sql.*"%>
   <head>
 
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>널널북</title>
+    <title>NULL BOOK - WRITE YOUR STORY !</title>
      
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,152 +48,117 @@
 
 
   <body>
-  
-      <!-- 사이드 메뉴 -->
 
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">담소</a>
-        <img src="/book/resources/profileImg/${member.member_photo }" alt="프로필사진" width="100px" height="100px">
-		${member.member_name} 님
-	   <a class="btn btn-primary" href="memberInfo/edit">마이페이지</a> <a href="login"><input type="submit" value="로그아웃 "></a>
-      </div>
-    </nav>
 
-    <!-- Masthead -->
-    <header class="masthead text-white text-center">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">Share your book idea</h1>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action = "/book/bookSearch" method="post" id="searchF" onSubmit="return check()">
-              <div class="form-row">
-                <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input type="text" class="form-control form-control-lg" name="keyword" id="keyword" >
-                </div>
-                <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">검색</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-       
-   <h1>독서노트 </h1>
+	<!-- Navigation -->
+	<nav class="navbar navbar-light bg-light static-top">
+		<div class="container">
+<a class="navbar-brand"
+				href="http://localhost:8080/book/member/login"><img src="${pageContext.request.contextPath}/resources/jspimg/logo.png" style="width: 70px;"></a>
+			<div class="topMenuLi">
+				<img class="member"
+					src="/book/resources/profileImg/${member.member_photo }">
+				<ul class="submenu">
+				<li class="name"><a class="submenuLink longLink" style="font-family: 'Nanum Myeongjo', serif; font-size: 15px;">${member.member_name}님.</a></li>
+					<hr width =100% color="black" align="center"  size=4/>
+					<li><a class="submenuLink longLink" href="">책&nbsp;&nbsp;장</a></li>
+					<li><a class="submenuLink longLink" href="http://localhost:8080/book/member/memberInfo">MY
+							PAGE</a></li>
+					<li><a class="submenuLink longLink" href="/login">LOGOUT</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-<ul>
-	<li><a href="../note/noteList">독서노트 리스트</a>
-	<li><a href="../note/noteList/${member.member_num}">내 독서노트</a></li>
-	<li><a href="../bookcase">책장</a></li>
-</ul>
+	<!-- Masthead -->
+	<header class="masthead text-white text-center">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 mx-auto">
+		
+				</div>
+				<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+					<form action="/book/bookSearch" method="post" id="searchF"
+						onSubmit="return check()">
+						<div class="form-row">
+							<div class="col-12 col-md-9 mb-2 mb-md-0">
+								<input type="text" class="form-control form-control-lg"
+									name="keyword" id="keyword" placeholder="당신의 이야기를 찾아보세요.">
+							</div>
+							<div class="col-12 col-md-3">
+								<button type="submit" class="btn btn-block btn-lg btn-primary">SEARCH</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
 
- <!-- Page Content -->
-    <div class="container">
+	<!-- Image Showcases -->
+	<section class="showcase">
+		<div id="mainbox">
+			<%
+				Connection conn = null; // null로 초기화 한다.
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				try {
+					String url = "jdbc:mysql://bitsender.c9qiqqacyz3e.ap-northeast-2.rds.amazonaws.com/yelioni?characterEncoding=utf8&amp;useSSL=false";
+					String id = "yelioni"; // 사용자 계정
+					String pw = "dnjs1ghk"; // 사용자 계정의 패스워드
+					Class.forName("com.mysql.jdbc.Driver"); // 데이터베이스와 연동하기 위해 DriverManager에 등록한다.
+					conn = DriverManager.getConnection(url, id, pw); // DriverManager 객체로부터 Connection 객체를 얻어온다.
+					String sql = "select* from booknotes order by upload_date desc"; // sql 쿼리
+					pstmt = conn.prepareStatement(sql); // prepareStatement에서 해당 sql을 미리 컴파일한다.pstmt.setString(1,"test");
+					rs = pstmt.executeQuery(); // 쿼리를 실행하고 결과를 ResultSet 객체에 담는다.
+					while (rs.next()) { // 결과를 한 행씩 돌아가면서 가져온다.
+						String imag = rs.getString("b_imag");
+						String title = rs.getString("b_title");
+						String isbn = rs.getString("isbn");
+						String ntitle = rs.getString("note_title");
+						String ncontents = rs.getString("note_contents");
+			%>
 
- <!-- Page Heading -->
-      <h1 class="my-4"><small>최신 독서노트</small>
-      </h1>
-      
-      <div class="row">
-      <c:forEach var="note" items="${notes }" begin="0" end="7" step="1" varStatus="status">
-        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="${note.b_imag }" alt="독서노트사진"></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">${note.note_title }</a>
-              </h4>
-              <p class="card-text">${note.note_contents }</p>
-            </div>
-          </div>
-        </div>
-        </c:forEach>
-      </div>
-      <!-- /.row -->
+			<div class="card ">
+				<a href="http://localhost:8080/book/bookInfo/<%=isbn%>"> <img
+					class="bookimg" src="<%=imag%>" alt="Avatar"></a> <a
+					href="http://localhost:8080/book/bookInfo/<%=isbn%>"><h6>
+						<strong><%=ntitle%></strong>
+					</h6></a>
+			</div>
+			<%
+				}
+				} catch (Exception e) { // 예외가 발생하면 예외 상황을 처리한다.
+					e.printStackTrace();
+					out.println("member 테이블 호출에 실패했습니다.");
+				}
+			%>
+		</div>
+	</section>
+	<!-- Call to Action -->
 
-      <!-- Pagination -->
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-
-    </div>
-    <!-- /.container -->
-
-
-   
-    <!-- Footer -->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2018. All Rights Reserved.</p>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-facebook fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item mr-3">
-                <a href="#">
-                  <i class="fa fa-twitter fa-2x fa-fw"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-instagram fa-2x fa-fw"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+	<!-- Footer -->
+	<footer class="footer bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+					<ul class="list-inline mb-2">
+						<li class="list-inline-item"><a href="#">About</a></li>
+						<li class="list-inline-item">&sdot;</li>
+						<li class="list-inline-item"><a href="#">Contact</a></li>
+						<li class="list-inline-item">&sdot;</li>
+						<li class="list-inline-item"><a href="#">Terms of Use</a></li>
+						<li class="list-inline-item">&sdot;</li>
+						<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+					</ul>
+					<p class="text-muted small mb-4 mb-lg-0">&copy; Your Website
+						2018. All Rights Reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
   </body>
 

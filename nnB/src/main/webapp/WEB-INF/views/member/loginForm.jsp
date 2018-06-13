@@ -192,8 +192,9 @@
                         
                     <input type="password" id="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="password" />  
 
-                  <a href="#" class="link_forgot_pass d_block" >Forgot Password ?</a>    
-
+                  <!-- <a class="link_forgot_pass d_block" onclick="location.href='http://localhost:8080/book/member/forgetpw" >Forgot Password ?</a>  -->   
+					<!-- <button onclick="location.href='http://localhost:8080/book/member/forgetpw">button</button> -->
+					<a class="link_forgot_pass d_block" href="http://localhost:8080/book/member/forgetpw" onclick="window.open(this.href,'_blanck','width=600, height=400'); return false">Forgot Password ?</a>
                   </div>
                   
                   <div class="cont_btn">
