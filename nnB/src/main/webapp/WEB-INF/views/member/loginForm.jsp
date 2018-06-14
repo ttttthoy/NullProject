@@ -194,7 +194,7 @@
 
                   <!-- <a class="link_forgot_pass d_block" onclick="location.href='http://localhost:8080/book/member/forgetpw" >Forgot Password ?</a>  -->   
 					<!-- <button onclick="location.href='http://localhost:8080/book/member/forgetpw">button</button> -->
-					<a class="link_forgot_pass d_block" href="http://localhost:8080/book/member/forgetpw" onclick="window.open(this.href,'_blanck','width=600, height=400'); return false">Forgot Password ?</a>
+					<a class="link_forgot_pass d_block" href="http://localhost:8080/book/member/forgetpw" onclick="window.open(this.href,'_blanck','width=450, height=278 left=100 top=150' ); return false">Forgot Password ?</a>
                   </div>
                   
                   <div class="cont_btn">
