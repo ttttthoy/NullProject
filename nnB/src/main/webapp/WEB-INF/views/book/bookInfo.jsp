@@ -7,7 +7,71 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+
+<!-- 페이스북 meta추가 -->
+<meta property="og:title" content="<?=imgsharetitle>"/>
+<meta property="og:image" content="<?=imgshareimage>"/>
+<meta property="og:description" content="<?=imgsharedescription>"/>
+<meta property="og:type" content="website"/>
+
 <title>책정보 페이지</title>
+
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript">
+// 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('앱키');
+ 
+    // 카카오톡 공유하기
+    function sendKakaoTalk()
+    {
+    Kakao.Link.sendTalkLink({
+      label: '공유 제목',
+      image: {
+        src: 'http://이미지경로',
+        width: '300', 
+        height: '200'
+      },
+      webButton: {
+        text: '공유제목',
+        url: 'https://도메인' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+      }
+    });
+    }
+ 
+    // 카카오스토리 공유하기
+      function shareStory() {
+        Kakao.Story.share({
+          url: '도메인',
+          text: '공유제목'
+        });
+      }
+ 
+ 
+    // send to SNS
+    function toSNS(sns, strTitle, strURL) {
+        var snsArray = new Array();
+        var strMsg = strTitle + " " + strURL;
+        var image = "이미지경로";
+ 
+        snsArray['twitter'] = "http://twitter.com/home?status=" + encodeURIComponent(strTitle) + ' ' + encodeURIComponent(strURL);
+        snsArray['facebook'] = "http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(strURL);
+        snsArray['blog'] = "http://blog.naver.com/openapi/share?url=" + encodeURIComponent(strURL) + "&title=" + encodeURIComponent(strTitle);
+        window.open(snsArray[sns]);
+    }
+ 
+    function copy_clip(url) {
+        var IE = (document.all) ? true : false;
+        if (IE) {
+            window.clipboardData.setData("Text", url);
+            alert("이 글의 단축url이 클립보드에 복사되었습니다.");
+        } else {
+            temp = prompt("이 글의 단축url입니다. Ctrl+C를 눌러 클립보드로 복사하세요", url);
+        }
+    }
+</script>
+    <meta property="og:url" content="https://www.your-domain.com/your-page.html" />
+
 
 </head>
 
@@ -226,6 +290,75 @@ background-image: none;
          })
 
       })
+      
+      
+      //읽었어요
+      $('#num0').click(function(){
+    	  
+    	  //alert(1);
+    	  
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 0,	
+    				imag : $('#imag').val()
+    			},
+    			success : function(data){ 
+    				alert('읽었어요!');
+    			}
+    		});	 
+    	  
+    })
+      
+    //읽고있어요
+      $('#num1').click(function(){
+    	  
+    	  //alert(1);
+    	  
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 1,		
+    				imag : $('#imag').val()
+    			},
+    			success : function(data){ 
+    				alert('읽고있어요!');
+    			}
+    		});	 
+    	  
+    });
+    
+    
+    //읽고싶어요
+      $('#num2').click(function(){
+    	  
+    	  //alert(1);
+    	  
+    		$.ajax({
+    			url : '<%=request.getContextPath()%>/storeBook',
+    			type : 'post',
+    			dataType : 'text',
+    			data : {
+    				isbn : $('#isbn').val(),
+    				member_num : $('#member_num').val(),
+    				state_num : 2,		
+    				imag : $('#imag').val()
+    			},
+    			success : function(data){ 
+    				alert('읽고싶어요!');
+    			}
+    		});	 
+    	  
+    });
+      
 
    })
 </script>
@@ -278,14 +411,22 @@ $(window).on('load', function(){
                 <h1 class="name">${book.title }</h1>
                 <h2 class="desc">${book.author }</h2>
                 <ul class="social list-inline">
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>                   
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>                 
+					<li><a href="javascript:toSNS('twitter','공유제목!','null단축URL')" title="트위터로 가져가기"><i class="fa fa-twitter"></i></a></li>                   
+                    <li><a href="javascript:toSNS('facebook','공유제목','https://www.your-domain.com/your-page.html')" title="페이스북으로 가져가기"><i class="fa fa-facebook"></i></a></li>   
+                    <!-- <li><a href="javascript:toSNS('blog','공유제목!','null단축URL')" title="네이버블로그로 가져가기"></a> -->                   
                     <li class="last-item"><a href="#"><i class="fa fa-hacker-news"></i></a></li>      
                 </ul> 
             </div><!--//profile-->
-          <a class="btn btn-cta-primary pull-right" href="http://themes.3rdwavemedia.com/" target="_blank"><i class="fa fa-paper-plane"></i> 읽고 싶어요</a>
-            <a class="btn btn-cta-primary pull-right" href="http://themes.3rdwavemedia.com/" target="_blank"><i class="fa fa-paper-plane"></i> 읽는 중이에요</a>
-            <a class="btn btn-cta-primary pull-right" href="http://themes.3rdwavemedia.com/" target="_blank"><i class="fa fa-paper-plane"></i> 읽었어요</a>
+			
+				<!-- <form action="bookStore" method="post" enctype="multipart/form-data"> -->
+	
+            	<input type="hidden" name="isbn" id="isbn" value="${book.isbn }"> 
+				<input type="hidden" name="member_num" id="member_num" value="${member.member_num }">
+				<input type="hidden" name="imag" id="imag" value="${book.imag }">
+	
+				<input type="button" value="읽었어요" id="num0" class="btn btn-cta-primary pull-right"> 
+				<input type="button" value="읽고있어요" id="num1" class="btn btn-cta-primary pull-right"> 
+				<input type="button" value="읽고싶어요" id="num2" class="btn btn-cta-primary pull-right">
             <a class="btn btn-cta-primary pull-right" href="/book/bookNote/${book.isbn }" target="_blank"><i class="fa fa-paper-plane"></i> 독서노트</a>           
         </div><!--//container-->
     </header><!--//header-->

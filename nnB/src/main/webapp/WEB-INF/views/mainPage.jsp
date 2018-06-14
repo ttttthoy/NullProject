@@ -62,7 +62,7 @@
 				<ul class="submenu">
 				<li class="name"><a class="submenuLink longLink" style="font-family: 'Nanum Myeongjo', serif; font-size: 15px;">${member.member_name}님.</a></li>
 					<hr width =100% color="black" align="center"  size=4/>
-					<li><a class="submenuLink longLink" href="">책&nbsp;&nbsp;장</a></li>
+					<li><a class="submenuLink longLink" href="http://localhost:8080/book/bookcase">책&nbsp;&nbsp;장</a></li>
 					<li><a class="submenuLink longLink" href="http://localhost:8080/book/member/memberInfo">MY
 							PAGE</a></li>
 					<li><a class="submenuLink longLink" href="/login">LOGOUT</a></li>
