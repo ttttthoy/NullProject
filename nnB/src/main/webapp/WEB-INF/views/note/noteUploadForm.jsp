@@ -93,8 +93,9 @@
         }
         
         .container{
+        
+            border : 1px solid black;
             background-color: #f0f0f0;
-            margin-top : 40px;
             margin-bottom : 40px;
             margin : auto;
             border-radius: 10px;
@@ -102,7 +103,7 @@
         }
 
         .con_item{
-            
+            border : 1px solid black;
             padding:10px;
             width:98%;
             margin-top:10px;
@@ -132,8 +133,8 @@
         }
         
         #mem_photo{
-            width:auto;
-            height:45px;
+           width:50px;
+            height:50px;
             margin-right: 10px;
             border-radius: 50%;
             border : 3px solid green;
@@ -198,7 +199,6 @@
 <div class="container">
 
 <div class="con_item">
-<div class="form-group"><h3>독서노트</h3></div>
 <div class="form-group">
     <div class="bookInfo">
         <div id="b_imag"><img src="${book.imag }"></div>

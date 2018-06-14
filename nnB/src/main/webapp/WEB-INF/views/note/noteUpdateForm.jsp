@@ -39,7 +39,93 @@
 </script>
 
     <style>
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
         
+
+  header{
+            padding:20px 40px 20px 40px;
+            background-color: #f0f0f0;
+            height:80px;
+            display:flex;
+        }
+        
+                 img{
+            width:auto;
+            height:190px;
+            border-radius: 6%;
+        }
+        
+           #home_but{
+            width:auto;
+            height:40px;;
+            margin-right:15px;
+        }
+        
+        a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+
+	
+	#menu li{
+            float: left;
+            list-style: none;
+            margin-top:10px;
+            margin-right: 20px;
+            font-size : 17px;
+        }
+        
+      #mem_photo{
+           width:50px;
+            height:50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border : 3px solid green;
+        }
+        
+        #mem_name{        
+            display: inline-block;
+            font-size:17px;
+       
+        }
+        
+          #item{
+            flex-grow: 1;
+        }
+        
+              footer{
+              height : 100px;
+              background-color : #f0f0f0;
+            margin-top:80px;
+            line-height: 100px; 
+            text-align: center;
+        }
+         
         body{
             background-color: #d9d9d9;
         }
@@ -108,24 +194,25 @@
 </head>
 <body>
 
-<nav class="navbar navbar-light bg-light static-top" style="position: fixed;">
-		<div class="container">
-			<a class="navbar-brand"
-				href="http://localhost:8080/book/member/login"><img src="${pageContext.request.contextPath}/resources/jspimg/logo.png" style="width: 70px;"></a>
-			<div class="topMenuLi">
-				<img class="member"
-					src="/book/resources/profileImg/${loginInfo.member_photo}">
-				<ul class="submenu">
-				<li class="name"><a class="submenuLink longLink" style="font-family: 'Nanum Myeongjo', serif; font-size: 15px;">${loginInfo.member_name}님.</a></li>
-					<hr width =100% color="black" align="center"  size=4/>
-					<li><a class="submenuLink longLink" href="">책&nbsp;&nbsp;장</a></li>
-					<li><a class="submenuLink longLink" href="http://localhost:8080/book/member/memberInfo">MY
-							PAGE</a></li>
-					<li><a class="submenuLink longLink" href="/login">LOGOUT</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<header>
+        <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
+        <div id="menu">
+            <ul>
+                <li><a href="/book/damso">책방</a></li>
+                <li><a href="#">책장</a></li>
+            </ul>
+        </div>
+        <div id="item"></div>
+        <div class="dropdown">
+            <img id=mem_photo src="/book/resources/profileImg/${session.member_photo }"><div id=mem_name>${session.member_name}</div>
+            <div class="dropdown-content">
+                <a href="/book/member/memberInfo">마이페이지</a>
+                <a href="member/logout">로그아웃</a>
+            </div>
+        </div>
+        
+    </header>
+
 
 <div class="container">
 
@@ -181,6 +268,14 @@
 </form>
     </div>    
 </div>
+
+
+ 	 <footer>
+
+				<div id="footer_de">
+					<p class="text-muted small mb-4 mb-lg-0 r-04">&copy; 책이 필요한 순간, 담소.</p>
+				</div>
+	</footer>
 	
 </body>
 

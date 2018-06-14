@@ -109,9 +109,9 @@ $(document).ready(function(){
             background-color: #d9d9d9;
         }
         
-        header{
+         header{
             padding:20px 40px 20px 40px;
-            background-color: white;
+            background-color: #f0f0f0;
             height:80px;
             display:flex;
         }
@@ -208,8 +208,8 @@ $(document).ready(function(){
         }
         
         #mem_photo{
-            width:auto;
-            height:45px;
+           width:50px;
+            height:50px;
             margin-right: 10px;
             border-radius: 50%;
             border : 3px solid green;
@@ -266,9 +266,11 @@ $(document).ready(function(){
            text-align:center;
         }
         
-        footer{
+         footer{
+              height : 100px;
+              background-color : #f0f0f0;
             margin-top:80px;
-            line-height: 50px; 
+            line-height: 100px; 
             text-align: center;
         }
 
@@ -368,9 +370,9 @@ $(document).ready(function(){
     
         <footer>
 
-            <div id="footer_de">
-               <p class="text-muted small mb-4 mb-lg-0">&copy; 책이 필요한 순간, 담소.</p>
-            </div>
+           <div id="footer_de">
+					<p class="text-muted small mb-4 mb-lg-0 r-04">&copy; 책이 필요한 순간, 담소.</p>
+				</div>
    </footer>
     
     <script>

@@ -58,7 +58,7 @@ public class MemberLoginController {
 		
 		model.addAttribute("session", session.getAttribute("loginInfo"));
 
-		System.out.println(session.getAttribute("loginInfo"));
+		System.out.println("-------------------" + session.getAttribute("loginInfo"));
 		
 		List<Note> notes = nls.getNoteListByDate();
 		
@@ -74,7 +74,7 @@ public class MemberLoginController {
         
     	session.setAttribute("LoginInfo", null);
         
-    	return "redirect:loginForm";
+    	return "member/loginForm";
     }
 }
 

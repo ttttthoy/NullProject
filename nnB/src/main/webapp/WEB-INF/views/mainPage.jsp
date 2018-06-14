@@ -16,12 +16,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="${pageContext.request.contextPath}/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="${pageContext.request.contextPath}/resources/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template -->
+   <!-- Custom styles for this template -->
     <link href="${pageContext.request.contextPath}/resources/css/landing-page.min.css" rel="stylesheet">
 
    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -76,14 +71,14 @@
 
         
 
- header{
+  header{
             padding:20px 40px 20px 40px;
-            background-color: white;
+            background-color: #f0f0f0;
             height:80px;
             display:flex;
         }
         
-                img{
+                 img{
             width:auto;
             height:190px;
             border-radius: 6%;
@@ -94,6 +89,10 @@
             height:40px;;
             margin-right:15px;
         }
+        
+        a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+
 	
 	#menu li{
             float: left;
@@ -104,8 +103,8 @@
         }
         
       #mem_photo{
-            width:auto;
-            height:45px;
+            width:50px;
+            height:50px;
             margin-right: 10px;
             border-radius: 50%;
             border : 3px solid green;
@@ -119,6 +118,14 @@
         
           #item{
             flex-grow: 1;
+        }
+        
+              footer{
+              height : 100px;
+              background-color : #f0f0f0;
+            margin-top:80px;
+            line-height: 100px; 
+            text-align: center;
         }
         
        </style>
@@ -140,14 +147,20 @@
         </div>
         <div id="item"></div>
         <div class="dropdown">
-            <img id=mem_photo src="/book/resources/profileImg/${member.member_photo }"><div id=mem_name>${loginInfo.member_name}</div>
+            <img id=mem_photo src="/book/resources/profileImg/${session.member_photo }"><div id=mem_name>${session.member_name}</div>
             <div class="dropdown-content">
                 <a href="/book/member/memberInfo">마이페이지</a>
-                <a href="/login">로그아웃</a>
+                <a href="member/logout">로그아웃</a>
             </div>
         </div>
         
     </header>
+    
+    <ul>
+	<li><a href="note/noteList">독서노트 리스트</a>
+	<li><a href="note/noteList/${member.member_num}">내 독서노트</a></li>
+</ul>
+    
 
    <!-- Masthead -->
    <header class="masthead text-white text-center">
@@ -217,26 +230,12 @@
    </section>
    <!-- Call to Action -->
 
-   <!-- Footer -->
-   <footer class="footer bg-light">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-               <ul class="list-inline mb-2">
-                  <li class="list-inline-item"><a href="#">About</a></li>
-                  <li class="list-inline-item">&sdot;</li>
-                  <li class="list-inline-item"><a href="#">Contact</a></li>
-                  <li class="list-inline-item">&sdot;</li>
-                  <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                  <li class="list-inline-item">&sdot;</li>
-                  <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-               </ul>
-               <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website
-                  2018. All Rights Reserved.</p>
-            </div>
-         </div>
-      </div>
-   </footer>
+ 	 <footer>
+
+				<div id="footer_de">
+					<p class="text-muted small mb-4 mb-lg-0 r-04">&copy; 책이 필요한 순간, 담소.</p>
+				</div>
+	</footer>
 
   </body>
 

@@ -27,13 +27,15 @@ public class noteUpdateController {
 	private noteUpdateService nus;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String noteUpdate(@PathVariable("id") int id, Model model) {
+	public String noteUpdate(@PathVariable("id") int id, Model model, HttpSession session) {
 		
 		Note note = nus.updateChk(id);
 		
 		System.out.println(note);
 		
 		model.addAttribute("note", note);
+		
+		model.addAttribute("session", session.getAttribute("loginInfo"));
 		
 		return "note/noteUpdateForm";
 	}
@@ -62,7 +64,6 @@ public class noteUpdateController {
 
 		model.addAttribute("notes", notes);
 
-		
 		return "note/noteList";
 	}
 }

@@ -1,5 +1,7 @@
 package com.bit.nullnull.book.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,13 +26,15 @@ public class bookSearchController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String searchList(@RequestParam(name="keyword") String keyword, Model model) throws Exception {
+	public String searchList(@RequestParam(name="keyword") String keyword, Model model, HttpSession session) throws Exception {
 		
 		System.out.println(keyword);
 		
 		String data = service.getBookAllData(keyword);
 		
 		System.out.println(data);
+		
+		model.addAttribute("session", session.getAttribute("loginInfo"));
 		
 		model.addAttribute("bookList", service.getBookList(data));
 		
