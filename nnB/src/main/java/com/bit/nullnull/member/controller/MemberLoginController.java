@@ -20,7 +20,6 @@ import com.bit.nullnull.member.service.MemberLoginService;
 
 
 @Controller
-@RequestMapping("/member/login")
 public class MemberLoginController {
 
 	@Autowired
@@ -29,12 +28,20 @@ public class MemberLoginController {
 	@Autowired
 	private noteListService nls;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/member/login", method = RequestMethod.GET)
 	public String loginForm() {
 		return "member/loginForm";
 	}
+	
+	@RequestMapping(value="/damso", method=RequestMethod.GET)
+	public String mainPage(Model model, HttpSession httpSession) {
+			
+		model.addAttribute("session", httpSession.getAttribute("loginInfo"));
+		
+		return "mainPage";
+	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/damso", method = RequestMethod.POST)
 	public String login(@RequestParam(value = "member_id", defaultValue = "0") String id,
 			@RequestParam(value = "password", required = false) String pw, Model model, HttpSession session) {
 
@@ -49,7 +56,7 @@ public class MemberLoginController {
 
 		session.setAttribute("loginInfo", member);
 		
-		model.addAttribute("member", session.getAttribute("loginInfo"));
+		model.addAttribute("session", session.getAttribute("loginInfo"));
 
 		System.out.println(session.getAttribute("loginInfo"));
 		

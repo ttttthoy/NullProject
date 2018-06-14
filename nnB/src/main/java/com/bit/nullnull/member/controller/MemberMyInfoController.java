@@ -25,7 +25,7 @@ public class MemberMyInfoController {
 		
 		model.addAttribute("session", session.getAttribute("loginInfo"));
 		
-		return "member/memberInfo";
+		return "member/memberInfoEdit";
 	}
 	
 	@RequestMapping(value="member/memberInfo", method=RequestMethod.POST)
@@ -39,7 +39,7 @@ public class MemberMyInfoController {
 		
 		model.addAttribute("session", session.getAttribute("loginInfo"));
 		
-		return "member/memberInfo";
+		return "mainPage";
 	}
 	
 	@RequestMapping(value="/member/memberInfo/edit", method=RequestMethod.GET)

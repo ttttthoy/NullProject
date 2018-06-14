@@ -178,7 +178,7 @@
 
         <div class="log-box">
             <div class="cont_login">
-                <form id="loginForm" action="login.do" method="post">
+                <form id="loginForm" action="/book/damso" method="post">
                     
                     <div class="cont_tabs_login">
                         <ul class='ul_tabs'>
