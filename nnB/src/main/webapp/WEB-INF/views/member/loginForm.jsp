@@ -42,7 +42,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #38c5b9;       
+  background: #F0F0F0;       
 }
 
 .log-box {
@@ -67,10 +67,10 @@
   position: relative;
   float: left;
   width: 50%;
-  text-align: center;
-  font-family: Helvetica;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
   font-size: 30px;
-  color: #FF8383;
+  color: #FE8095;
   line-height: 14px;
   padding: 30px ;
   display: block;
@@ -127,7 +127,7 @@
 }
 
 .btn_sign {
-  background: rgba(255,64,88,0.74);
+  background: #FE8095;
   box-shadow: 0px 2px 20px 2px rgba(255,114,132,0.50);
   border-radius: 8px;
   padding: 15px 30px;
@@ -182,7 +182,7 @@
                     
                     <div class="cont_tabs_login">
                         <ul class='ul_tabs'>
-                            <li class="active">Log In -
+                            <li class="active">Log In . 
                         </ul>
                     </div>
                   
