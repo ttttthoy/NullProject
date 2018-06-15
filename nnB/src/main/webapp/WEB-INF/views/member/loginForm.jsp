@@ -170,12 +170,17 @@
 .cont_text_inputs > input:nth-child(4){
   transition-delay: 0.8s;
 }
+
+
 </style>
 </head>
 <body>
 
-<div class="back">
 
+
+
+<div class="back">
+		
         <div class="log-box">
             <div class="cont_login">
                 <form id="loginForm" action="/book/damso" method="post">
@@ -192,9 +197,7 @@
                         
                     <input type="password" id="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="password" />  
 
-                  <!-- <a class="link_forgot_pass d_block" onclick="location.href='http://localhost:8080/book/member/forgetpw" >Forgot Password ?</a>  -->   
-					<!-- <button onclick="location.href='http://localhost:8080/book/member/forgetpw">button</button> -->
-					<a class="link_forgot_pass d_block" href="http://localhost:8080/book/member/forgetpw" onclick="window.open(this.href,'_blanck','width=450, height=278 left=100 top=150' ); return false">Forgot Password ?</a>
+                 	<a class="link_forgot_pass d_block" href="http://localhost:8080/book/member/forgetpw" onclick="window.open(this.href,'_blanck','width=450, height=278 left=100 top=150' ); return false">Forgot Password ?</a>
                   </div>
                   
                   <div class="cont_btn">

@@ -11,22 +11,16 @@
 		* {
 			padding : 0;
 		}
-		
-		a {
-		  text-decoration: none;
-		  color: inherit;
-		  display : block;
-		}
-		
+
 		body {
-		  background: #F0F0F0;
+		  background: #f0f0f0;
 		  font-family: 'Nanum Myeongjo', serif;
 		  font-weight: 300;
 		  line-height: 1.5;
 		}
 		
 		main {
-		  margin-top: 100px;
+		  margin-top: 200px;
 		  color: black;
 		  text-align: center;
 		  letter-spacing:15px;
@@ -42,9 +36,8 @@
 		.log{
 		  margin-top: 100px;
 		  width: 250px;
-		  height: 45px;
-		  font-family: 'Nanum Myeongjo', serif;
-		  font-size: 11px;
+		  height: 50px;
+		  font-size: 16px;
 		  text-transform: uppercase;
 		  letter-spacing: 2.5px;
 		  font-weight: 500;
@@ -68,9 +61,8 @@
 		  margin-top: 100px;
 		  margin-left:20px;
 		  width: 250px;
-		  height: 45px;
-		  font-family: 'Nanum Myeongjo', serif;
-		  font-size: 11px;
+		  height: 50px;
+		  font-size: 16px;
 		  text-transform: uppercase;
 		  letter-spacing: 2.5px;
 		  font-weight: 500;
@@ -91,22 +83,22 @@
 		  transform: translateY(-7px);
 		}
 		
-		img{
-			width:40%;
+		#home_but{
+		  width:25%;
 		}
 				
 	</style>
 </head>
 <body>
-	<center>
+	
 	<main>
-      <a href="#"><img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png"> </a>
+      <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
       <h3>책이 필요한 순간, </h3>
     </main>
-    </center>
+   
     <div class="wrap">
-        <button class="log"><a href="member/login">Log In</a></button>
-        <button class="sign"><a href="member/memberReg">Sign Up</a></button>
+        <button class="log" type="button" onclick="location.href='member/login'">Log In</button>
+        <button class="sign" type="button" onclick="location.href='member/memberReg'">Sign Up</button>
     </div>
 
 </body>

@@ -5,6 +5,10 @@
 
 	<mapper namespace="com.bit.nullnull.member.dao.FollowDao">
 	
+	<select id="getFollower_id" resultType="Integer">
+		select following from follow where follower = #{member_id}
+	</select>
+	
 	<select id="getFollow" resultType="com.bit.nullnull.member.model.Follow">
 		select * from follow where follower = #{follower} and following = #{following}
 	</select>

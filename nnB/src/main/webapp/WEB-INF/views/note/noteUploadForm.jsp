@@ -38,12 +38,16 @@
   
 </script>
 
-   
-    <style>
-        
+	<style>
+	
+       
         .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.find {
+	border: 2px solid pink;
 }
 
 .dropdown-content {
@@ -67,35 +71,83 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
         
-        
-        body{
-            background-color: #d9d9d9;
-        }
-        
-        header{
+
+  nav{
             padding:20px 40px 20px 40px;
             background-color: white;
             height:80px;
             display:flex;
+            border-bottom : 3px solid #dc3545;
         }
+        
+              
+        
+           #home_but{
+            width:auto;
+            height:50px;;
+            margin-right:50px;
+        }
+        
+        a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+
+	
+	#menu li{
+            float: left;
+            list-style: none;
+            margin-top:10px;
+            margin-right: 30px;
+            font-size : 17px;
+        }
+        
+      #mem_photo{
+            width:50px;
+            height:50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border : 3px solid #dc3545;
+        }
+        
+        #mem_name{        
+            display: inline-block;
+            font-size:17px;
+       
+        }
+        
+          #item{
+            flex-grow: 1;
+        }
+        
+              footer{
+              height : 100px;
+              background-color : #f0f0f0;
+            margin-top:80px;
+            line-height: 100px; 
+            text-align: center;
+        }
+	
+	</style>
+   
+    <style>
+                
+        body{
+            background-color: #f0f0f0;
+        }
+        
+    
         
         form{
             margin-bottom: 20px;
         }
         
-        #menu li{
-            float: left;
-            list-style: none;
-            margin-top:10px;
-            margin-right: 20px;
-            font-size : 17px;
-        }
         
         .container{
-        
-            border : 1px solid black;
-            background-color: #f0f0f0;
+        	padding-top:50px;
+        	padding-bottom : 20px;
+            background-color: #fde7e7;
             margin-bottom : 40px;
             margin : auto;
             border-radius: 10px;
@@ -103,7 +155,6 @@
         }
 
         .con_item{
-            border : 1px solid black;
             padding:10px;
             width:98%;
             margin-top:10px;
@@ -123,29 +174,7 @@
         }
         
         
-        #home_but{
-            width:auto;
-            height:40px;;
-        }
-        
-        #item{
-            flex-grow: 1;
-        }
-        
-        #mem_photo{
-           width:50px;
-            height:50px;
-            margin-right: 10px;
-            border-radius: 50%;
-            border : 3px solid green;
-        }
-        
-        #mem_name{        
-            display: inline-block;
-            font-size:17px;
-       
-        }
-        
+              
         #b_contents{
         	margin-left : 20px;
         }
@@ -164,18 +193,14 @@
            text-align:center;
         }
         
-        footer{
-            margin-top:80px;
-            line-height: 50px; 
-            text-align: center;
-        }
+       
         
     </style>	
 </head>
 
 <body>
 
-    <header>
+    <nav>
         <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
         <div id="menu">
             <ul>
@@ -192,7 +217,7 @@
             </div>
         </div>
         
-    </header>
+    </nav>
     
     <br><br><br>
 
@@ -245,7 +270,7 @@
   </div>
     
     <div class="button_de">
-  <input type="submit" class="btn btn-info" style=" background-color: green;" value="저장">
+  <input type="submit" class="btn btn-info btn-danger" style="width:100px; height : 45px" value="저장">
         </div>
 </form>
     </div>    

@@ -40,10 +40,18 @@
 	</script>
 	
 	    <style>
+	    
+	    body{
+	background-color : #f0f0f0;
+}
         
         .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.find {
+	border: 2px solid pink;
 }
 
 .dropdown-content {
@@ -71,34 +79,31 @@
 
         
 
-  header{
+  nav{
             padding:20px 40px 20px 40px;
-            background-color: #f0f0f0;
+            background-color: white;
             height:80px;
             display:flex;
+            border-bottom : 3px solid #dc3545;
         }
         
-                 img{
-            width:auto;
-            height:190px;
-            border-radius: 6%;
-        }
+              
         
            #home_but{
             width:auto;
-            height:40px;;
-            margin-right:15px;
+            height:50px;;
+            margin-right:50px;
         }
         
         a:link { color: black; text-decoration: none;}
- a:visited { color: black; text-decoration: none;}
+ 		a:visited { color: black; text-decoration: none;}
 
 	
 	#menu li{
             float: left;
             list-style: none;
             margin-top:10px;
-            margin-right: 20px;
+            margin-right: 30px;
             font-size : 17px;
         }
         
@@ -107,7 +112,7 @@
             height:50px;
             margin-right: 10px;
             border-radius: 50%;
-            border : 3px solid green;
+            border : 3px solid #dc3545;
         }
         
         #mem_name{        
@@ -134,15 +139,13 @@
 
 
   <body>
-
-
-
-       <header>
+  
+       <nav>
         <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
         <div id="menu">
             <ul>
                 <li><a href="/book/damso">책방</a></li>
-                <li><a href="#">책장</a></li>
+                <li><a href="/book/bookcase">책장</a></li>
             </ul>
         </div>
         <div id="item"></div>
@@ -154,17 +157,11 @@
             </div>
         </div>
         
-    </header>
-    
-    <ul>
-	<li><a href="note/noteList">독서노트 리스트</a>
-	<li><a href="note/noteList/${member.member_num}">내 독서노트</a></li>
-</ul>
-    
+    </nav>
+
 
    <!-- Masthead -->
-   <header class="masthead text-white text-center">
-      <div class="overlay"></div>
+   <header 	class="masthead text-white text-center">
       <div class="container">
          <div class="row">
             <div class="col-xl-9 mx-auto">
@@ -176,10 +173,10 @@
                   <div class="form-row">
                      <div class="col-12 col-md-9 mb-2 mb-md-0">
                         <input type="text" class="form-control form-control-lg"
-                           name="keyword" id="keyword" placeholder="당신의 이야기를 찾아보세요.">
+                           name="keyword" id="keyword" placeholder="당신의 이야기를 찾아보세요." style="border : 2px solid #dc3545; box-sizing : border-box;">
                      </div>
                      <div class="col-12 col-md-3">
-                        <button type="submit" class="btn btn-block btn-lg btn-primary">SEARCH</button>
+                        <button type="submit" class="btn btn-block btn-lg btn-danger" style="font-family:auto">검색</button>
                      </div>
                   </div>
                </form>
@@ -188,7 +185,16 @@
       </div>
    </header>
 
+<!--  
+<ul>
+	<li><a href="/book/note/noteList">독서노트 리스트</a>
+	<li><a href="/book/note/noteList/${session.member_num}">내 독서노트</a></li>
+	<li><a href="/book/member/follow/${session.member_num }">팔로우 리스트</a>
+</ul>
+-->
    <!-- Image Showcases -->
+   
+   <br><br><br><br>
    <section class="showcase">
       <div id="mainbox">
          <%

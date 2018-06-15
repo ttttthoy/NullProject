@@ -50,6 +50,10 @@ function check(){
 
 <style>
 
+  body{
+	background-color : #f0f0f0;
+}
+
         .dropdown {
     position: relative;
     display: inline-block;
@@ -83,7 +87,7 @@ function check(){
 }
 
 .booklist{
-	border-top : 50px solid white;
+	border-top : 50px solid #f0f0f0;
 	padding-top : 50px;
 }
 
@@ -92,29 +96,31 @@ function check(){
 
 }
 
-  header{
+   nav{
             padding:20px 40px 20px 40px;
-            background-color: #f0f0f0;
+            background-color: white;
             height:80px;
             display:flex;
+            border-bottom : 3px solid #dc3545;
         }
         
+              
         
            #home_but{
             width:auto;
-            height:40px;;
-            margin-right:15px;
+            height:50px;;
+            margin-right:50px;
         }
         
         a:link { color: black; text-decoration: none;}
- 		a:visited { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
 
 	
 	#menu li{
             float: left;
             list-style: none;
             margin-top:10px;
-            margin-right: 20px;
+            margin-right: 30px;
             font-size : 17px;
         }
         
@@ -123,7 +129,7 @@ function check(){
             height:50px;
             margin-right: 10px;
             border-radius: 50%;
-            border : 3px solid green;
+            border : 3px solid #dc3545;
         }
         
         #mem_name{        
@@ -159,7 +165,7 @@ function check(){
 
 <body>
 
-<header>
+<nav>
         <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
         <div id="menu">
             <ul>
@@ -176,7 +182,7 @@ function check(){
             </div>
         </div>
         
-    </header>
+    </nav>
 
 <div class="totalbody">
 	<center>

@@ -29,4 +29,6 @@ public interface NoteDao {
 
 	List<Note> selectNoteListByDate();
 
+	int noteCountByid(int mem_num);
+
 }

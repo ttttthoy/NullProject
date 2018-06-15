@@ -4,6 +4,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bit.nullnull.booknote.dao.NoteDao">
+	
+	<select id="noteCountByid" resultType="int">
+		select count(*) from booknotes where member_num = #{mem_num}
+	</select>
 
 	<select id="selectNoteListByDate" resultType="com.bit.nullnull.booknote.model.Note">
 		select * from booknotes where pub_priv=0 order by upload_date desc

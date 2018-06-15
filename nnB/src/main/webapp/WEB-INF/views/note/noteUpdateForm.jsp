@@ -38,10 +38,14 @@
   
 </script>
 
-    <style>
+<style>
         .dropdown {
     position: relative;
     display: inline-block;
+}
+
+.find {
+	border: 2px solid pink;
 }
 
 .dropdown-content {
@@ -69,23 +73,20 @@
 
         
 
-  header{
+  nav{
             padding:20px 40px 20px 40px;
-            background-color: #f0f0f0;
+            background-color: white;
             height:80px;
             display:flex;
+            border-bottom : 3px solid #dc3545;
         }
         
-                 img{
-            width:auto;
-            height:190px;
-            border-radius: 6%;
-        }
+              
         
            #home_but{
             width:auto;
-            height:40px;;
-            margin-right:15px;
+            height:50px;;
+            margin-right:50px;
         }
         
         a:link { color: black; text-decoration: none;}
@@ -96,16 +97,16 @@
             float: left;
             list-style: none;
             margin-top:10px;
-            margin-right: 20px;
+            margin-right: 30px;
             font-size : 17px;
         }
         
       #mem_photo{
-           width:50px;
+            width:50px;
             height:50px;
             margin-right: 10px;
             border-radius: 50%;
-            border : 3px solid green;
+            border : 3px solid #dc3545;
         }
         
         #mem_name{        
@@ -125,28 +126,36 @@
             line-height: 100px; 
             text-align: center;
         }
-         
-        body{
-            background-color: #d9d9d9;
+	
+</style>
+
+    <style>
+        
+      body{
+            background-color: #f0f0f0;
         }
         
+    
+        
         form{
-            margin-bottom: 100px;
+            margin-bottom: 20px;
         }
-                
+        
+        
         .container{
-            background-color: #f0f0f0;
-            margin-top : 40px;
+        	padding-top:50px;
+        	padding-bottom : 20px;
+            background-color: #fde7e7;
             margin-bottom : 40px;
             margin : auto;
+            border-radius: 10px;
             width:40%;
         }
 
         .con_item{
-            
             padding:10px;
             width:98%;
-            margin-top:200px;
+            margin-top:10px;
             margin-left:10px;
         }
 
@@ -162,17 +171,10 @@
             font-weight: bold;
         }
         
-        #b_imag{
-            margin:5px;
-            text-align: right;
-           display: inline-block;
-        }
         
+              
         #b_contents{
-            margin-left: 15px;            
-            display: inline-block;
-            font-size:13px;
-       
+        	margin-left : 20px;
         }
         
         #b_description{
@@ -194,7 +196,7 @@
 </head>
 <body>
 
-<header>
+<nav>
         <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
         <div id="menu">
             <ul>
@@ -211,13 +213,12 @@
             </div>
         </div>
         
-    </header>
+    </nav>
 
-
+<br><br><br>
 <div class="container">
 
 <div class="con_item">
-<div class="form-group"><h3>독서노트</h3></div>
 <div class="form-group">
     <div class="bookInfo">
         <div id="b_imag"><img src="${note.b_imag }"></div>
@@ -263,7 +264,7 @@
   </div>
     
     <div class="button_de">
-  <input type="submit" class="btn btn-info" style=" background-color: green;" value="저장">
+  <input type="submit"class="btn btn-info btn-danger" style="width:100px; height : 45px" value="수정">
         </div>
 </form>
     </div>    

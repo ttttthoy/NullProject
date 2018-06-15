@@ -70,6 +70,7 @@
 	
 	<beans:bean id="bookcaseService" class="com.bit.nullnull.bookcase.service.bookcaseService"/>
 	
+	<beans:bean id="noteCountService" class="com.bit.nullnull.booknote.service.noteCountService"/>
 	
 	<!-- 실제 이미지 저장할 경로 -->
 	<beans:bean id="uploadPath" class="java.lang.String">

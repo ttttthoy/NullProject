@@ -549,7 +549,7 @@ $(window).on('load', function(){
                 <aside class="blog aside section">
                     <div class="section-inner">
                         <h2 class="heading">채팅창</h2>
-                        <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
+                        <iframe src="http://localhost:3000/chat?id=${loginInfo.member_name}" width="400" height="650" frameborder="0" ></iframe>
                         <div id="rss-feeds" class="content">
 
                         </div><!--//content-->
