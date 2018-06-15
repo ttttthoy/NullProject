@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat</title>
+    <style>
+        .total{width: 350px; height: 600px; background-color: #ffffff}
+        .chat_log{ width: 320px; height: 490px; resize: none; padding-left: 10px;
+        padding-top:10px;}
+        .name{ width: 80px; float: right; margin-bottom: 10px; margin-right: 10px; border: 0px; margin-top: 10px; background-color: #ffffff; padding-left: 10px; }
+      .message{ width: 280.5px; height: 40px; }
+        .submit{
+            height: 44.5px;
+            width: 45px;
+            margin-top: 10px;
+            border-radius: 10%;
+            border: 0px;
+            background-color: #FE8095;
+            color: white;
+            font-family: 'Nanum Myeongjo', serif; 
+          
+        }
+        .notice{
+            font-size:13px;
+            color:#FE8095;
+            font-family: 'Nanum Myeongjo', serif; 
+            float: right;
+            margin-right:20px;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="total">
+    <div>
+      <input id="name" class="name" type="text" readonly>
+      <textarea id="chatLog" class="chat_log" readonly ></textarea>
+    </div>
+    <form id="chat">
+      <input id="message" class="message" type="text">
+      <input id="submit" class="submit" value="전송" type="submit">
+    </form>
+          <p class="notice">※욕설은 자제해주세요.</p>
+    <div id="box" class="box">
+    <script src="/socket.io/socket.io.js"></script> <!-- 1 -->
+    <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        
+        var wname = window.name;
+        
+        //alert(wname);
+        
+        
+      var socket = io(); //1
+      $('#chat').on('submit', function(e){ //2
+        socket.emit('send message', wname, $('#name').val(), $('#message').val());
+        $('#message').val('');
+        $('#message').focus();
+        e.preventDefault();
+      });
+      socket.on('receive message', function(msg){ //3
+        $('#chatLog').append(msg+'\n');
+        $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
+      });
+      socket.on('change name', function(name){ //4
+        //$('#name').val(name);
+      });
+        
+        $(document).ready(function(){
+         	$('#name').val('<%= userid%>');
+        });
+        
+    </script>
+      </div>
+   </div>
+  </body>
+</html>
