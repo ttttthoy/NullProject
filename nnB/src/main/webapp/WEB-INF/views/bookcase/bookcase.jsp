@@ -87,11 +87,126 @@
     .slick-current {
       opacity: 1;
     }
+    
+    
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.totalbody{
+	margin-top : 50px;
+}
+
+.booklist{
+	border-top : 50px solid #f0f0f0;
+	padding-top : 50px;
+}
+
+.search{
+	margin-top : -50px;
+
+}
+
+   nav{
+            padding:20px 40px 20px 40px;
+            background-color: white;
+            height:80px;
+            display:flex;
+            border-bottom : 3px solid #dc3545;
+        }
+        
+              
+        
+           #home_but{
+            width:auto;
+            height:50px;;
+            margin-right:50px;
+        }
+        
+        a:link { color: black; text-decoration: none;}
+ a:visited { color: black; text-decoration: none;}
+
+	
+	#menu li{
+            float: left;
+            list-style: none;
+            margin-top:10px;
+            margin-right: 30px;
+            font-size : 17px;
+        }
+        
+      #mem_photo{
+            width:50px;
+            height:50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border : 3px solid #dc3545;
+        }
+        
+        #mem_name{        
+            display: inline-block;
+            font-size:17px;
+       
+        }
+        
+          #item{
+            flex-grow: 1;
+        }
+        
+              footer{
+              height : 100px;
+              background-color : #f0f0f0;
+            margin-top:80px;
+            line-height: 100px; 
+            text-align: center;
+        }
+    
   </style>    
     </head>
 
 <body>
-
+<nav>
+        <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
+        <div id="menu">
+            <ul>
+                <li><a href="/book/damso">책방</a></li>
+                <li><a href="#">책장</a></li>
+            </ul>
+        </div>
+        <div id="item"></div>
+        <div class="dropdown">
+            <img id=mem_photo src="/book/resources/profileImg/${session.member_photo }"><div id=mem_name>${session.member_name}</div>
+            <div class="dropdown-content">
+                <a href="/book/member/memberInfo">마이페이지</a>
+                <a href="member/logout">로그아웃</a>
+            </div>
+        </div>
+        
+    </nav>
 
 <header id="header">
   <div class="intro">

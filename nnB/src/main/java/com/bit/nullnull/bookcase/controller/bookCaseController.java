@@ -49,6 +49,7 @@ public class bookCaseController {
 		System.out.println(readbook1);
 		System.out.println(readbook2);
 		
+		model.addAttribute("session", session.getAttribute("loginInfo"));
 		model.addAttribute("readbook0", readbook0);
 		model.addAttribute("readbook1", readbook1);
 		model.addAttribute("readbook2", readbook2);
