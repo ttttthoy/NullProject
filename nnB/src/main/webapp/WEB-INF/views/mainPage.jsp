@@ -135,7 +135,7 @@
         <div id="menu">
             <ul>
                 <li><a href="/book/damso">책방</a></li>
-                <li><a href="/book/bookcase/${member_num}">책장</a></li>
+                <li><a href="/book/bookcase/${session.member_num}">책장</a></li>
             
             </ul>
         </div>
