@@ -7,70 +7,57 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bit.nullnull.book.model.ReadBook;
 import com.bit.nullnull.bookcase.service.bookcaseService;
-import com.bit.nullnull.member.model.Member;
+import com.bit.nullnull.booknote.model.Note;
+import com.bit.nullnull.booknote.service.noteListService;
 
 @Controller
 public class bookCaseController {
 
 	@Autowired
 	private bookcaseService bcs;
+	
+	@Autowired
+	private noteListService nls;
 
 	
-	@RequestMapping("/bookcase")
+/*	@RequestMapping("/bookcase/{member_num}")
 	public String storeList(){
 		
 		return "bookcase/bookcase";
 		
-	}
+	}*/
 	
-	@RequestMapping("/bookcase/already")
-	public String mystoreList0(Model model,HttpSession session) {
+	@RequestMapping("/bookcase/{member_num}")
+	public String mystoreList0(@PathVariable(name="member_num")int member_num,Model model,HttpSession session) {
 		
-		Member member = (Member) session.getAttribute("loginInfo");
+
+		List<ReadBook> readbook0 = bcs.getStoreListPast(member_num);
+		List<ReadBook> readbook1 = bcs.getStoreListCurrent(member_num);
+		List<ReadBook> readbook2 = bcs.getStoreListFuture(member_num);
+		List<Note> note = nls.getMyNoteList(member_num);
 		
-		List<ReadBook> readbook = bcs.getStoreListPast(member.getMember_num());
+/*		for (ReadBook readBook2 : readbook) {
+			System.out.println(readBook2.getImag());
+		}*/
 		
-		System.out.println(readbook);
+		System.out.println(readbook0);
+		System.out.println(readbook1);
+		System.out.println(readbook2);
 		
-		model.addAttribute("readbook", readbook);
+		model.addAttribute("readbook0", readbook0);
+		model.addAttribute("readbook1", readbook1);
+		model.addAttribute("readbook2", readbook2);
+		model.addAttribute("note", note);
 		
-		return "bookcase/already";
-	}
-	
-	
-	@RequestMapping("/bookcase/now")
-	public String mystoreList1(Model model,HttpSession session) {
-		
-		Member member = (Member) session.getAttribute("loginInfo");
-		
-		List<ReadBook> readbook = bcs.getStoreListCurrent(member.getMember_num());
-		
-		System.out.println(readbook);
-		
-		model.addAttribute("readbook", readbook);
-		
-		return "bookcase/now";
+		return "bookcase/bookcase";
 	}
 	
 	
-	
-	@RequestMapping("/bookcase/willread")
-	public String mystoreList2(Model model,HttpSession session) {
-		
-		Member member = (Member) session.getAttribute("loginInfo");		
-		
-		List<ReadBook> readbook = bcs.getStoreListFuture(member.getMember_num());
-		
-		System.out.println(readbook);
-		
-		model.addAttribute("readbook", readbook);
-		
-		return "bookcase/willread";
-	}
-	
+
 	
 }

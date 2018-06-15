@@ -15,7 +15,7 @@
 	<table>
 
  			
-				<c:forEach var="bookread" items="${readbook}" varStatus="status"> 
+				<c:forEach var="bookread" items="${readbook2}" varStatus="status"> 
 					<tr>
 							<td><img src="${bookread.imag }"></td>
 							<%-- <td>${bookread.member_num }</td> --%>

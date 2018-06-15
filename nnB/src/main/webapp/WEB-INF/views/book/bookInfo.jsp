@@ -540,7 +540,7 @@ $(window).on('load', function(){
                             <ul class="list-unstyled">
                                 <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>평균 별점  :  ${avgStar }</li>
                                 <li><i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span><a href="#">담은 사람 수</a></li>
-                                <li><i class="fa fa-link"></i><span class="sr-only">Website:</span><a href="#">구매 링크</a></li>
+                                <li><i class="fa fa-link"></i><span class="sr-only">Website:</span><a href="${book.link}">구매 링크</a></li>
                             </ul>
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
@@ -549,7 +549,7 @@ $(window).on('load', function(){
                 <aside class="blog aside section">
                     <div class="section-inner">
                         <h2 class="heading">채팅창</h2>
-                        <iframe src="http://localhost:3000/chat?id=${loginInfo.member_name}" width="400" height="650" frameborder="0" ></iframe>
+                        <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
                         <div id="rss-feeds" class="content">
 
                         </div><!--//content-->

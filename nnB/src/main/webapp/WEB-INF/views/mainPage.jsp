@@ -30,30 +30,28 @@
   
     <script>
       function check(){
-	  if($.trim($("#keyword").val())==""){
-	 	  alert("키워드를 입력하세요!");
-	  	 return false;
-	  } 
-	  return true;
+     if($.trim($("#keyword").val())==""){
+         alert("키워드를 입력하세요!");
+         return false;
+     } 
+     return true;
 }
                   
-	</script>
-	
-	    <style>
-	    
-	    body{
-	background-color : #f0f0f0;
+   </script>
+   
+       <style>
+       
+       body{
+   background-color : #f0f0f0;
 }
         
         .dropdown {
     position: relative;
     display: inline-block;
 }
-
 .find {
-	border: 2px solid pink;
+   border: 2px solid pink;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -62,23 +60,16 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content a:hover {background-color: #ddd;}
-
 .dropdown:hover .dropdown-content {display: block;}
-
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-
         
-
   nav{
             padding:20px 40px 20px 40px;
             background-color: white;
@@ -96,10 +87,9 @@
         }
         
         a:link { color: black; text-decoration: none;}
- 		a:visited { color: black; text-decoration: none;}
-
-	
-	#menu li{
+       a:visited { color: black; text-decoration: none;}
+   
+   #menu li{
             float: left;
             list-style: none;
             margin-top:10px;
@@ -161,7 +151,7 @@
 
 
    <!-- Masthead -->
-   <header 	class="masthead text-white text-center">
+   <header    class="masthead text-white text-center">
       <div class="container">
          <div class="row">
             <div class="col-xl-9 mx-auto">
@@ -187,9 +177,9 @@
 
 <!--  
 <ul>
-	<li><a href="/book/note/noteList">독서노트 리스트</a>
-	<li><a href="/book/note/noteList/${session.member_num}">내 독서노트</a></li>
-	<li><a href="/book/member/follow/${session.member_num }">팔로우 리스트</a>
+   <li><a href="/book/note/noteList">독서노트 리스트</a>
+   <li><a href="/book/note/noteList/${session.member_num}">내 독서노트</a></li>
+   <li><a href="/book/member/follow/${session.member_num }">팔로우 리스트</a>
 </ul>
 -->
    <!-- Image Showcases -->
@@ -236,12 +226,12 @@
    </section>
    <!-- Call to Action -->
 
- 	 <footer>
+     <footer>
 
-				<div id="footer_de">
-					<p class="text-muted small mb-4 mb-lg-0 r-04">&copy; 책이 필요한 순간, 담소.</p>
-				</div>
-	</footer>
+            <div id="footer_de">
+               <p class="text-muted small mb-4 mb-lg-0 r-04">&copy; 책이 필요한 순간, 담소.</p>
+            </div>
+   </footer>
 
   </body>
 
