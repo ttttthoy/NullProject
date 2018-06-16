@@ -4,16 +4,6 @@
 <%@ page import="java.sql.*"%>
 <%-- <% String ContextPath = request.getContextPath(); %> --%>
 
-<!-- 	<table>
-		<tr>
-			<td>
-				<a href="/book/bookcase/already">읽었어요</a>
-				<a href="/book/bookcase/now">읽고있어요</a>
-				<a href="/book/bookcase/willread">읽고싶어요</a>
-			</td>
-		</tr>
-	</table> -->
-	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -234,9 +224,9 @@
         <ul class="nav navbar-nav">
           <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
           <li class="hidden"> <a href="#page-top"></a> </li>
-          <li> <a class="page-scroll" href="#about">독서노트</a> </li>
+          <li> <a class="page-scroll" href="#contact">독서노트</a> </li>
           <li> <a class="page-scroll" href="#portfolio">읽었어요</a> </li>
-          <li> <a class="page-scroll" href="#contact">읽고있어요</a> </li>
+          <li> <a class="page-scroll" href="#contact2">읽고있어요</a> </li>
           <li> <a class="page-scroll" href="#portfolio2">읽고싶어요</a> </li>    
         </ul>
       </div>
@@ -244,7 +234,7 @@
   </nav>
 </div>
 <!-- About Section -->
-<div id="about">
+<div id="contact">
   <div class="container">
     <div class="section-title text-center">
       <p style="font-size: 40px;">독서노트</p>
@@ -292,7 +282,7 @@
 
 
 <!-- Contact Section -->
-<div id="contact"> <!-- class="text-center -->
+<div id="contact2"> <!-- class="text-center -->
   <div class="container">
     <div class="section-title text-center">
        <p style="font-size: 40px;">읽고있어요</p>

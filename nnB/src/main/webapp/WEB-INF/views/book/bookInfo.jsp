@@ -19,34 +19,7 @@
 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript">
-// 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('앱키');
- 
-    // 카카오톡 공유하기
-    function sendKakaoTalk()
-    {
-    Kakao.Link.sendTalkLink({
-      label: '공유 제목',
-      image: {
-        src: 'http://이미지경로',
-        width: '300', 
-        height: '200'
-      },
-      webButton: {
-        text: '공유제목',
-        url: 'https://도메인' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-      }
-    });
-    }
- 
-    // 카카오스토리 공유하기
-      function shareStory() {
-        Kakao.Story.share({
-          url: '도메인',
-          text: '공유제목'
-        });
-      }
- 
+
  
     // send to SNS
     function toSNS(sns, strTitle, strURL) {
@@ -411,9 +384,9 @@ $(window).on('load', function(){
                 <h1 class="name">${book.title }</h1>
                 <h2 class="desc">${book.author }</h2>
                 <ul class="social list-inline">
-					<li><a href="javascript:toSNS('twitter','공유제목!','null단축URL')" title="트위터로 가져가기"><i class="fa fa-twitter"></i></a></li>                   
-                    <li><a href="javascript:toSNS('facebook','공유제목','https://www.your-domain.com/your-page.html')" title="페이스북으로 가져가기"><i class="fa fa-facebook"></i></a></li>   
-                    <!-- <li><a href="javascript:toSNS('blog','공유제목!','null단축URL')" title="네이버블로그로 가져가기"></a> -->                   
+					<li><a href="javascript:toSNS('twitter','트위터공유','http://localhost:8080/book/bookInfo/${book.isbn}')" title="트위터로 가져가기"><i class="fa fa-twitter"></i></a></li>                   
+                    <%-- <li><a href="javascript:toSNS('facebook','공유제목','http://localhost:8080/book/bookInfo/${book.isbn}')" title="페이스북으로 가져가기"><i class="fa fa-facebook"></i></a></li> --%>   
+                    <li><a href="javascript:toSNS('blog','공유제목!','http://localhost:8080/book/bookInfo/${book.isbn}')" title="네이버블로그로 가져가기"><i class="fa fa-facebook"></i></a></li>             
                     <li class="last-item"><a href="#"><i class="fa fa-hacker-news"></i></a></li>      
                 </ul> 
             </div><!--//profile-->

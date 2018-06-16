@@ -13,4 +13,7 @@ public interface LoginDao {
 	public List<Member> selectList();
 	public Member selectByNum(int member_num);
 
+	public Member emailChk(String member_id);
+	public int insertKakao(Member member);
+	
 }

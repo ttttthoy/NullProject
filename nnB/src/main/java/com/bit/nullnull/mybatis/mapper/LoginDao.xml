@@ -23,6 +23,19 @@
 		insert into Member ( member_id, member_name, member_pw ) 
 		values ( #{member_id}, #{member_name}, #{member_pw} )	
 	</insert>
+	
+	
+	
+	
+	<select id="emailChk" resultType="com.bit.nullnull.member.model.Member">
+		select * from Member where member_id = #{id} 
+	</select>
+	
+	<insert id="insertKakao" parameterType="com.bit.nullnull.member.model.Member"
+	useGeneratedKeys="true" keyProperty="member_num">
+		insert into Member(member_id, member_name, member_photo)
+		values (#{member_id}, #{member_name}, #{member_photo})
+	</insert>
 		
 </mapper>
 
