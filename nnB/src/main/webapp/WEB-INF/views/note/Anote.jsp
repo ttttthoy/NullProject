@@ -264,6 +264,35 @@ $(document).ready(function(){
             cursor: pointer;
         }
         
+        
+         .button_de{
+        width:100px;
+        height:45px;
+        border-radius : 10px;
+        background-color : #dc3545;
+          padding-top : 14px;
+          padding-left:35px;
+           float : right;
+           margin-bottom : 30px;
+           margin-left : 10px;
+        }
+        
+        .button_de a{
+        color:white;
+        text-align : center;
+       font-size : 14px;
+       font-weight : bold;
+       text-decoration : none;
+        }
+        
+        .button_de a:visited {
+        color : white;
+        font-size :14px;
+        font-weight : bold;
+          text-decoration : none; 
+        }
+        
+        
        </style>
 
 
@@ -378,6 +407,17 @@ $(document).ready(function(){
     <label for="Name">내용</label>
      <p>${note.note_contents }</p>
   </div>
+  
+  
+<c:if test="${session.member_num == note.member_num}">
+   <div class="button_de">
+ <a href="/book/note/${note.note_id }/noteUpdate">수정</a>
+        </div>
+         <div class="button_de">
+<a href="/book/note/${note.note_id}/noteDelete">삭제</a>   
+        </div>
+        <br><br><br><br>
+   </c:if>
     
     </div>    
 </div>

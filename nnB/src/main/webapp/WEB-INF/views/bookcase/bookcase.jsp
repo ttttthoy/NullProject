@@ -79,7 +79,7 @@
     }
     
     
-        .dropdown {
+    .dropdown {
     position: relative;
     display: inline-block;
 }
@@ -174,9 +174,11 @@
             line-height: 100px; 
             text-align: center;
         }
+        
+                   
     
   </style>    
-    </head>
+</head>
 
 <body>
 <nav>
@@ -242,12 +244,12 @@
     </div>
     
       <div class="row">
-   
    <section class="center slider">
 	<c:forEach var="note" items="${note}" varStatus="status">
 		<div>
 			<img onclick="javascript:location.href='/book/note/${note.note_id}/Anote';" src="${note.b_imag}"
-				 style="box-shadow: 15px 15px 15px 1px #a7a7a7;">
+				style="box-shadow: 15px 15px 15px 1px #a7a7a7;">	
+    		
 		</div>
     </c:forEach>
 
