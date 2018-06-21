@@ -35,8 +35,8 @@
 		<beans:property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<beans:property name="jdbcUrl"
 			value="jdbc:mysql://bitsender.c9qiqqacyz3e.ap-northeast-2.rds.amazonaws.com/yelioni?characterEncoding=utf8&amp;useSSL=false" />
-		<beans:property name="user" value="yelioni" />
-		<beans:property name="password" value="dnjs1ghk" />
+		<beans:property name="user" value="*" />
+		<beans:property name="password" value="*" />
 	</beans:bean>
 
 	<beans:bean id="noteUploadService"
