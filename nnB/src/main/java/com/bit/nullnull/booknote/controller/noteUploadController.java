@@ -77,10 +77,12 @@ public class noteUploadController {
 		List<Note> notes = nls.getMyNoteList(member.getMember_num());
 
 		System.out.println(notes);
+		
+		model.addAttribute("session", member);
 
 		model.addAttribute("notes", notes);
 
-		return "note/noteList";
+		return "bookcase/bookcase";
 	}
 
 }

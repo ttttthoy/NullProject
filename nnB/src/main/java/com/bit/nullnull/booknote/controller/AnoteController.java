@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.bit.nullnull.booknote.model.Like;
 import com.bit.nullnull.booknote.model.Note;
 import com.bit.nullnull.booknote.service.noteLikeService;
+import com.bit.nullnull.booknote.service.noteUpdateService;
+import com.bit.nullnull.booknote.service.noteUploadService;
 import com.bit.nullnull.member.model.Follow;
 import com.bit.nullnull.member.model.Member;
 import com.bit.nullnull.member.service.MemberFollowService;
@@ -28,6 +30,12 @@ public class AnoteController {
 	
 	@Autowired
 	private MemberFollowService mfs;
+	
+	@Autowired
+	private noteUploadService nupload;
+	
+	@Autowired
+	private noteUpdateService nupdate;
 			
 	@RequestMapping("/note/{note_id}/Anote")
 	public String noteMain(@PathVariable("note_id") int note_id, Model model, HttpSession session) {
@@ -64,5 +72,38 @@ public class AnoteController {
 		return "note/Anote";
 		
 	}
+	
+	@RequestMapping("/note/Anote/see")
+	public String notesee(Note note, Model model, HttpSession session) {
+		
+		nupload.noteUpload(note);
+		
+		Boolean l_status = true;
+		Boolean f_status = true;
+		
+		model.addAttribute("f_status", f_status);
+		model.addAttribute("l_status", l_status);
+		model.addAttribute("note", note);
+		model.addAttribute("noteMem", session.getAttribute("loginInfo"));
+		model.addAttribute("session", session.getAttribute("loginInfo"));
+		
+		return "note/Anote";
+	}
 
+	@RequestMapping("/note/Anote/update")
+	public String noteupdate(Note note, Model model, HttpSession session) {
+		
+		nupdate.noteUpdate(note);
+		
+		Boolean l_status = false;
+		Boolean f_status = true;
+		
+		model.addAttribute("f_status", f_status);
+		model.addAttribute("l_status", l_status);
+		model.addAttribute("note", note);
+		model.addAttribute("noteMem", session.getAttribute("loginInfo"));
+		model.addAttribute("session", session.getAttribute("loginInfo"));
+		
+		return "note/Anote";
+	}
 }

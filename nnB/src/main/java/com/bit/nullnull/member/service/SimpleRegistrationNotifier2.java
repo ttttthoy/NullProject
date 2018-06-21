@@ -19,14 +19,17 @@ public class SimpleRegistrationNotifier2 {
 	private JavaMailSender mailSender;
 
 	public void sendMail(Member member) {
-		
+		System.out.println("sendMail(Member member)");
 		MimeMessage message = mailSender.createMimeMessage();
 		try {
 			
-			message.setSubject("회원가입 안내");
-			
+			message.setSubject("비밀번호 변경 안내");
+			System.out.println("메일보내기 :  " + member);
 			String htmlMsg = "<strong>안녕하세요. " 
 					+ member.getMember_name() +"님 </strong>, 반갑습니다.";
+			htmlMsg += "비밀번호 변경 안내입니다.";
+			htmlMsg += "입력하신" + member.getMember_id() + "님 보내드린 변경링크를 통하여 비밀번호를 변경하여 주세요.";
+			htmlMsg += "<a href='http://localhost:8080/book/member/pwchange?id=" + member.getMember_id() +"'>비밀번호 변경</a>";
 			message.setText(htmlMsg, "utf-8", "html");
 		
 			message.setFrom(new InternetAddress());
@@ -50,7 +53,7 @@ public class SimpleRegistrationNotifier2 {
 
 			MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 			
-			helper.setSubject("회원가입");	
+			helper.setSubject("비밀번호 변경");	
 			
 			String htmlContent = "<strong>안녕하세요</strong>, 반갑습니다.";
 			helper.setText(htmlContent, true);

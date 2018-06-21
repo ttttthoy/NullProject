@@ -234,7 +234,7 @@
 </div>
     <br>
 
-<form method="post">
+<form action="/book/note/Anote/update" method="post">
 
 <input type="hidden" name="note_id" value="${note.note_id }">
 		<input type="hidden" name="isbn" value="${note.isbn }">

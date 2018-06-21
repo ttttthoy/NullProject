@@ -59,10 +59,15 @@ margin-bottom: 5%;
     <div class="back">
     <br>
     <div class="message">
-	<h2>입력하신 아이디 또는<br>비밀번호가 틀립니다!</h2> <br>
-    <p>다시 한 번만 확인 부탁드릴게요!ㅜㅠ</p>
+	<h2>비밀번호 변경</h2> <br>
+	<form id="Pwsearchform"  method="post">
 	<hr width="90%">
-	<a href="http://localhost:8080/book/"><img src="${pageContext.request.contextPath}/resources/jspimg/home-button.png"></a>
+    <br>
+    <input id="member_pw"  type="password"  name="member_pw" style="width:70%; margin-left: 60px;">
+    <br>
+	<input type="submit" value="변경" style="margin-left: 45%; margin-top: 10px; border: 0px; background-color: #ff9393; width:50px; height: 30px; border-radius: 5px;">
+	</input>
+	</form>
 	</div>
     </div>
 </body>

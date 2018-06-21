@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Magnum</title>
+<title>책장</title>
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -194,7 +194,7 @@
             <img id=mem_photo src="/book/resources/profileImg/${session.member_photo }"><div id=mem_name>${session.member_name}</div>
             <div class="dropdown-content">
                 <a href="/book/member/memberInfo">마이페이지</a>
-                <a href="member/logout">로그아웃</a>
+                <a href="/book/member/logout">로그아웃</a>
             </div>
         </div>
         

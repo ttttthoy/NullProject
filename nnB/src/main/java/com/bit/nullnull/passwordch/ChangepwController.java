@@ -36,6 +36,6 @@ System.out.println("11111:::::"+member);
 
 
 
-		return "member/inforpage";
+		return "member/infopage";
 	}
 }

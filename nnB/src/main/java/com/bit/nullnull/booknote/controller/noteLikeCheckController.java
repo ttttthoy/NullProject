@@ -16,15 +16,17 @@ public class noteLikeCheckController {
 	@Autowired
 	private noteLikeService nls;
 	
-	@RequestMapping(value="/note/like", method=RequestMethod.POST)
+	@RequestMapping(value="/note/like")
 	@ResponseBody
-	public void idChk(@RequestParam(name="note_id") int note_id, @RequestParam(name="member_num") int member_num, @RequestParam(name="status") boolean status) {
+	public void idChk(@RequestParam(name="note_id") int note_id, @RequestParam(name="member_num") int member_num, @RequestParam(name="l_status") boolean l_status) {
+		
+		System.out.println("넘어온?????");
 		
 		Like like = new Like(note_id, member_num);
 		
 		System.out.println("idCHK : " + like);
 		
-		if(status) {
+		if(l_status) {
 			nls.removeLike(like);
 			nls.minusLike(note_id);
 		}

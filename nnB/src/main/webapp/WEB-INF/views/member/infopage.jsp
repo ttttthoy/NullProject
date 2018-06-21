@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Gamja+Flower|Nanum+Myeongjo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <script src="<c:url value="/resources/js/jquery-1.11.3.min.js" />"></script>
 <title>안내페이지</title>
 </head>
 <style>
@@ -44,10 +45,7 @@ body {
 		<p class="change">변경이 완료되었습니다.</p> 
 		<hr style="margin-bottom: 12px; margin-top: 19px; ">
 		<p class="retry">다시 접속 부탁드립니다. </p>
-		 		<input TYPE="IMAGE"
-				src="${pageContext.request.contextPath}/resources/jspimg/close-button.png"
-				name="Submit" value="Submit" align="absmiddle"
-				style="height: 30px; margin: 20px;" onclick="javascript:self.close();">
+	
 		</div>
 </body>
 </html>

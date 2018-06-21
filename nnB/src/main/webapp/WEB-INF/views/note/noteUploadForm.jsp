@@ -239,7 +239,7 @@
 </div>
     <br>
 
-<form method="post">
+<form action="/book/note/Anote/see" method="post">
 
 <input type="hidden" name="isbn" value="${book.isbn}">
 		<input type="hidden" name="member_num" value="${session.member_num }">

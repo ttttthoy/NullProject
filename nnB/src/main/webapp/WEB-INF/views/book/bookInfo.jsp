@@ -233,6 +233,78 @@ background-image: none;
    z-index: 1;
 }
 .star-input>output{display:inline-block;width:60px; font-size:18px;text-align:right; vertical-align:middle;}
+
+        .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.find {
+   border: 2px solid pink;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+        
+  nav{
+            padding:20px 40px 20px 40px;
+            background-color: white;
+            height:80px;
+            display:flex;
+            border-bottom : 3px solid #dc3545;
+        }
+        
+              
+        
+           #home_but{
+            width:auto;
+            height:50px;;
+            margin-right:50px;
+        }
+        
+        li a:link { color: black; text-decoration: none;}
+       li a:visited { color: black; text-decoration: none;}
+   
+   #menu li{
+            float: left;
+            list-style: none;
+            margin-top:10px;
+            margin-right: 30px;
+            font-size : 17px;
+        }
+        
+      #mem_photo{
+            width:50px;
+            height:50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border : 3px solid #dc3545;
+        }
+        
+        #mem_name{        
+            display: inline-block;
+            font-size:17px;
+       
+        }
+        
+          #item{
+            flex-grow: 1;
+        }
+        
+
 </style>
 
 <!-- 리뷰 저장 ajax -->
@@ -376,6 +448,25 @@ $(window).on('load', function(){
 </script>
 
 <body>
+			  <nav>
+        <img id="home_but" src="${pageContext.request.contextPath}/resources/jspimg/logo.png">
+        <div id="menu">
+            <ul>
+                <li><a href="/book/damso">책방</a></li>
+                <li><a href="/book/bookcase/${member.member_num}">책장</a></li>
+            
+            </ul>
+        </div>
+        <div id="item"></div>
+        <div class="dropdown">
+            <img id=mem_photo src="/book/resources/profileImg/${member.member_photo }"><div id=mem_name>${member.member_name}</div>
+            <div class="dropdown-content">
+                <a href="/book/member/memberInfo">마이페이지</a>
+                <a href="/book/member/logout">로그아웃</a>
+            </div>
+        </div>
+        
+    </nav>
 
 <header class="header">
         <div class="container">                       
@@ -390,6 +481,7 @@ $(window).on('load', function(){
                     <li class="last-item"><a href="#"><i class="fa fa-hacker-news"></i></a></li>      
                 </ul> 
             </div><!--//profile-->
+			
 			
 				<!-- <form action="bookStore" method="post" enctype="multipart/form-data"> -->
 	
@@ -522,7 +614,8 @@ $(window).on('load', function(){
                 <aside class="blog aside section">
                     <div class="section-inner">
                         <h2 class="heading">채팅창</h2>
-                        <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
+  						<iframe src="http://localhost:3000/chat?id=${loginInfo.member_name}" width="400" height="650" frameborder="0" ></iframe>
+
                         <div id="rss-feeds" class="content">
 
                         </div><!--//content-->

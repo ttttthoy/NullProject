@@ -36,18 +36,9 @@ public class noteDeleteController {
 		if(resultCnt == 0) {
 			msg = "삭제 처리가 되지 않았습니다!";
 		}
-		
-		model.addAttribute("msg", msg);
-		
 		Member member = (Member) session.getAttribute("loginInfo");
 
-		List<Note> notes = nls.getMyNoteList(member.getMember_num());
-
-		System.out.println(notes);
-
-		model.addAttribute("notes", notes);
-		
-		return "note/noteList";		
+		return "redirect:/bookcase/"+member.getMember_num();		
 	}
 
 }
