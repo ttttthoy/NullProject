@@ -1,6 +1,6 @@
 # NullProject
 
-### 책에 관심이 많은 사용자 끼리 소통할 수 있는 도서 커뮤니티 플랫폼
+### 책을 구매할 수 있는 구매처로 안내해주고 책을 좋아하는 사용자 끼리 소통할 수 있는 도서 커뮤니티 플랫폼
 
 <img src="https://user-images.githubusercontent.com/37688723/143313483-4f230f90-859e-4e80-9d79-47e06c999fbd.gif"/>
 
