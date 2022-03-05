@@ -20,24 +20,17 @@ public class bookReadController {
 	@Autowired
 	private bookSearchService bss; 
 	
-
-	
 	@RequestMapping(value ="/storeBook", method=RequestMethod.POST)
 	@ResponseBody
 	public void storebt(@RequestParam(name="isbn")String isbn, @RequestParam(name="member_num")String member_num, 
 						@RequestParam(name="state_num")String state_num, @RequestParam(name="imag")String imag) {
-		//System.out.println(readbook);
-		
-		ReadBook readBook = new ReadBook();
 
-		//System.out.println(imag);
+		ReadBook readBook = new ReadBook();
 		
 		readBook.setIsbn(isbn);
 		readBook.setMember_num(member_num);
 		readBook.setState_num(state_num);
 		readBook.setImag(imag);
-		
-		//System.out.println(readBook);
 		
 		int resultCnt = brss.bookStore(readBook);
 		
@@ -48,8 +41,6 @@ public class bookReadController {
 		}
 		
 		System.out.println(msg);
-
-//		return "book/bookInfo";
 		
 	}
 		
